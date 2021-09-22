@@ -3,8 +3,14 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
+variables:
+  pathToP2: NotFightClub/
+  pathToP2Sln: $(pathToP2)/NotFightClub.sln
+
 trigger:
+
 - main
+- testbranch
 
 pool:
   vmImage: ubuntu-latest
