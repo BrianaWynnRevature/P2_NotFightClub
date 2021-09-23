@@ -31,7 +31,7 @@ export class RegisterComponent implements OnInit {
 
   }
 
-  notOldEnough(registerForm: NgForm): boolean {
+  //notOldEnough(registerForm: NgForm): boolean {
 
-  }
+  //}
 }
