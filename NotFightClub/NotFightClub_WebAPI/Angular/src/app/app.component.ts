@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthenticationService } from './service/authentication/authentication.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,24 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Angular';
+  title = '!FightClub';
+
+  constructor(public authenticationService: AuthenticationService) {
+
+  }
+
+  logout() {
+    this.authenticationService.logout();
+
+  }
+
+  //tried to use just a variable for this part, but it would not register the change in authentication status
+  authenticate():boolean {
+    let authenticated = this.authenticationService.isAuthenticated;
+    console.log(`final auth: ${authenticated}`);
+    return authenticated;
+  }
+  
+   
+
 }
