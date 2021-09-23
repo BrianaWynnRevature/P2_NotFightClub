@@ -26,7 +26,7 @@ namespace NotFightClub_WebAPI
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
     {
-
+      services.AddCors();
       services.AddControllers();
       services.AddSwaggerGen(c =>
       {
@@ -43,6 +43,16 @@ namespace NotFightClub_WebAPI
         app.UseSwagger();
         app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "NotFightClub_WebAPI v1"));
       }
+
+      app.UseCors(options => options
+        .WithOrigins(
+          new string[]
+          { 
+            "http://localhost:4200"
+          })
+        .AllowAnyHeader()
+        .AllowAnyMethod()
+        );
 
       app.UseHttpsRedirection();
 
