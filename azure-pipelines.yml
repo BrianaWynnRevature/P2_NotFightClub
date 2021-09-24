@@ -7,6 +7,7 @@
 variables:
   pathToP2: NotFightClub/
   pathToP2Sln: $(pathToP2)/NotFightClub.sln
+  p2PackagePath: $(Build.ArtifactStagingDirectory)
 
 trigger:
 
@@ -16,17 +17,22 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-steps: 
-
-  - task: UseDotNet@2
-    displayName: dotnet sdk
-    inputs:
-      packageType: 'sdk'
-      version: '5.0.x'
-
-  - task: UseDotNet@2
-    inputs:
-      packageType: 'runtime'
-      version: '2.x'
+stages:
+- stage: Build
+  jobs:
+  - job: buildJob
+    steps:
+    - task: UseDotNet@2
+      inputs:
+        version: '5.0.x'
+    - task: DownloadSecureFile@1
+      name: PubXML
+      displayName: 'Download .pubxml for Deployment'
+      inputs:
+        secureFile: 'NotFightClub-P2.pubxml'
+    - task: VSBuild@1
+      inputs:
+        solution: '$(pathToP2Sln)'
+        msbuildArgs: '/t:Restore;Build /p:DeployIisAppPath="Project1-StoreApplication" /p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:PublishProfile="$(PubXML.secureFilePath)" /p:PackageLocation="$(p2PackagePath)"'
 
 
