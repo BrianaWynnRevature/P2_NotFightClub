@@ -16,20 +16,17 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-steps:
-  - task: DotNetCoreCLI@2
-    displayName: Restore
+steps: 
+
+  - task: UseDotNet@2
+    displayName: dotnet sdk
     inputs:
-      command: restore
-      projects: '**/*.csproj'
-      feedsToUse: config
-      nugetConfigPath: NuGet.config    # Relative to root of the repository
-      externalFeedCredentials: <Name of the NuGet service connection>
-  - task: DotNetCoreCLI@2
-    displayName: Build
+      packageType: 'sdk'
+      version: '5.0.x'
+
+  - task: UseDotNet@2
     inputs:
-      command: build
-      projects: '**/*.csproj'
-      arguments: '--configuration $(buildConfiguration)' # Update this to match your need
+      packageType: 'runtime'
+      version: '2.x'
 
 
