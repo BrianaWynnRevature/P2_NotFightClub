@@ -11,18 +11,19 @@ import { TestComponent } from './test/test.component';
 import { CommonModule } from '@angular/common';
 import { ChatComponent } from './chat/chat.component';
 import { HttpClientModule } from '@angular/common/http';
-
-
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+
     StoreComponent,
     UserProfileComponent,
     ChatComponent,
     LoginComponent,
     RegisterComponent,
-    TestComponent
+    TestComponent,
+    EditProfileComponent,
   ],
   imports: [
     HttpClientModule,

@@ -18,12 +18,21 @@
     "@angular/platform-browser": "~12.2.0",
     "@angular/platform-browser-dynamic": "~12.2.0",
     "@angular/router": "~12.2.0",
+<<<<<<< HEAD
+<<<<<<< Updated upstream
+=======
+    "bootstrap": "^5.1.1",
+    "jquery": "^3.6.0",
+    "pusher-js": "^7.0.3",
+>>>>>>> Stashed changes
+=======
 
     "pusher-js": "^7.0.3",
 
     "bootstrap": "^5.1.1",
     "jquery": "^3.6.0",
 
+>>>>>>> 58d5d42eeeec1eca23454f28b4361f585a52ccf5
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
