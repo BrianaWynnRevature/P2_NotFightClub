@@ -22,8 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
     ChatComponent,
     LoginComponent,
     RegisterComponent,
-    TestComponent,
-
+    TestComponent
   ],
   imports: [
     HttpClientModule,
