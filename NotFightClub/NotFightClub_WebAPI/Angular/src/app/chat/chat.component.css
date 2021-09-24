@@ -1,3 +1,6 @@
 .scrollarea {
     min-height: 500px;
 }
+.container{
+    margin-top: 2rem;
+}
