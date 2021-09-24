@@ -8,6 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using NotFightClub_Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,6 +33,16 @@ namespace NotFightClub_WebAPI
             //{
             //    options.UseSqlServer(Configuration.GetConnectionString("local"));
             //});
+            //services.AddDbContext<P2_NotFightClubContext>(options =>
+            //{
+            //    //if db options is already configured, done do anything..
+            //    // otherwise use the Connection string I have in secrets.json
+            //    if (!options.IsConfigured)
+            //    {
+            //        options.UseSqlServer(Configuration.GetConnectionString("local"));
+            //    }
+            //});
+      services.AddDbContext<P2_NotFightClubContext>();
       services.AddControllers();
       services.AddSwaggerGen(c =>
       {
