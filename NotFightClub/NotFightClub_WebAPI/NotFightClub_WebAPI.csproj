@@ -10,6 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
+	<Content Include="Angular\node_modules\%40ampproject\remapping\package.json" />
     <Content Include="Angular\node_modules\bootstrap\dist\css\bootstrap-grid.css" />
     <Content Include="Angular\node_modules\bootstrap\dist\css\bootstrap-grid.min.css" />
     <Content Include="Angular\node_modules\bootstrap\dist\css\bootstrap-grid.rtl.css" />

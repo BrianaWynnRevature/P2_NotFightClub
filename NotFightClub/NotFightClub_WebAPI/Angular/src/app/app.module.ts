@@ -19,7 +19,10 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     StoreComponent,
     UserProfileComponent,
-    ChatComponent
+    ChatComponent,
+    LoginComponent,
+    RegisterComponent,
+    TestComponent
 
   ],
   imports: [
