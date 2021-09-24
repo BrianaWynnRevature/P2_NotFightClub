@@ -10,7 +10,6 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { TestComponent } from './test/test.component';
 import { CommonModule } from '@angular/common';
 import { ChatComponent } from './chat/chat.component';
-import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -20,14 +19,14 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     StoreComponent,
     UserProfileComponent,
-    ChatComponent
+    ChatComponent,
+    LoginComponent,
+    RegisterComponent,
+    TestComponent,
 
   ],
   imports: [
     HttpClientModule,
-    LoginComponent,
-    RegisterComponent,
-    TestComponent,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
