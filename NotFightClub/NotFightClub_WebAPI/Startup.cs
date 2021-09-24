@@ -2,11 +2,13 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using NotFightClub_Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +29,20 @@ namespace NotFightClub_WebAPI
     public void ConfigureServices(IServiceCollection services)
     {
       services.AddCors();
+            //services.AddDbContext<ConfigurationContext>(options =>
+            //{
+            //    options.UseSqlServer(Configuration.GetConnectionString("local"));
+            //});
+            //services.AddDbContext<P2_NotFightClubContext>(options =>
+            //{
+            //    //if db options is already configured, done do anything..
+            //    // otherwise use the Connection string I have in secrets.json
+            //    if (!options.IsConfigured)
+            //    {
+            //        options.UseSqlServer(Configuration.GetConnectionString("local"));
+            //    }
+            //});
+      services.AddDbContext<P2_NotFightClubContext>();
       services.AddControllers();
       services.AddSwaggerGen(c =>
       {

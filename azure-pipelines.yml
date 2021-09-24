@@ -7,6 +7,8 @@
 variables:
   pathToP2: NotFightClub/
   pathToP2Sln: $(pathToP2)/NotFightClub.sln
+  p2PackagePath: $(Build.ArtifactStagingDirectory)
+  pathTop2Ang:  $(pathToP2)/NotFightClub_WebAPI/Angular
 
 trigger:
 
@@ -14,13 +16,36 @@ trigger:
 - testbranch
 
 pool:
-  vmImage: ubuntu-latest
+  vmImage: windows-latest
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+stages:
+- stage: Build
+  jobs:
+  - job: buildJob
+    steps:
+    - task: UseDotNet@2
+      inputs:
+        version: '5.0.x'
+   # - task: DownloadSecureFile@1
+    #  name: PubXML
+     # displayName: 'Download .pubxml for Deployment'
+      #inputs:
+       # secureFile: 'NotFightClub-P2.pubxml'
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+    - task: NodeTool@0
+      inputs:
+        versionSpec: '10.x'
+      displayName: 'Install Node.js'
+
+
+
+    - task: Npm@1
+      inputs:
+        command: 'install'
+        workingDir: $(pathTop2Ang)
+
+    - task: VSBuild@1
+      inputs:
+        solution: '$(pathToP2Sln)'
+        msbuildArgs: '/t:Restore;Build'
+
