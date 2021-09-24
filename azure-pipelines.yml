@@ -8,7 +8,7 @@ variables:
   pathToP2: NotFightClub/
   pathToP2Sln: $(pathToP2)/NotFightClub.sln
   p2PackagePath: $(Build.ArtifactStagingDirectory)
-  pathTop2Ang:  $(pathToP2)/NotFightClub_WebAPI_Angular
+  pathTop2Ang:  $(pathToP2)/NotFightClub_WebAPI/Angular
 
 trigger:
 
