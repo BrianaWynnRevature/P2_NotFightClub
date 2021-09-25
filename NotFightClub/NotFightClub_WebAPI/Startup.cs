@@ -28,20 +28,28 @@ namespace NotFightClub_WebAPI
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
     {
-      services.AddCors();
-            //services.AddDbContext<ConfigurationContext>(options =>
-            //{
-            //    options.UseSqlServer(Configuration.GetConnectionString("local"));
-            //});
-            //services.AddDbContext<P2_NotFightClubContext>(options =>
-            //{
-            //    //if db options is already configured, done do anything..
-            //    // otherwise use the Connection string I have in secrets.json
-            //    if (!options.IsConfigured)
-            //    {
-            //        options.UseSqlServer(Configuration.GetConnectionString("local"));
-            //    }
-            //});
+      services.AddCors((options) =>
+      {
+        options.AddPolicy(name: "NotFightClubLocal", builder =>
+        {
+          builder.WithOrigins("http://localhost:4200")
+          .AllowAnyHeader()
+          .AllowAnyMethod();
+        });
+      });
+      //services.AddDbContext<ConfigurationContext>(options =>
+      //{
+      //    options.UseSqlServer(Configuration.GetConnectionString("local"));
+      //});
+      //services.AddDbContext<P2_NotFightClubContext>(options =>
+      //{
+      //    //if db options is already configured, done do anything..
+      //    // otherwise use the Connection string I have in secrets.json
+      //    if (!options.IsConfigured)
+      //    {
+      //        options.UseSqlServer(Configuration.GetConnectionString("local"));
+      //    }
+      //});
       services.AddDbContext<P2_NotFightClubContext>();
       services.AddControllers();
       services.AddSwaggerGen(c =>
@@ -60,15 +68,10 @@ namespace NotFightClub_WebAPI
         app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "NotFightClub_WebAPI v1"));
       }
 
-      app.UseCors(options => options
-        .WithOrigins(
-          new string[]
-          { 
-            "http://localhost:4200"
-          })
-        .AllowAnyHeader()
-        .AllowAnyMethod()
-        );
+      app.UseCors("NotFightClubLocal");
+
+      app.UseDefaultFiles();
+      app.UseStaticFiles();
 
       app.UseHttpsRedirection();
 
