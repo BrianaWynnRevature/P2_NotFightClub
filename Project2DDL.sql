@@ -4,8 +4,11 @@
 CREATE DATABASE P2_NotFightClub
 Go
 
+USE P2_NotFightClub
+Go
+
 CREATE TABLE UserInfo(
-UserId uniqueidentifier not null default newId(),
+UserId uniqueidentifier not null default newId() primary key,
 UserName nvarchar(50) not null,
 PWord nvarchar(100) not null,
 Email nvarchar(50),
@@ -34,7 +37,16 @@ Baseform nvarchar(100),
 UserId uniqueidentifier not null FOREIGN KEY REFERENCES UserInfo(UserId),
 TraitId int not null FOREIGN KEY REFERENCES Trait(TraitId) on delete no action ,
 WeaponId int not null FOREIGN KEY REFERENCES Weapon(WeaponId) on delete no action
+)
 
+CREATE TABLE [Location](
+LocationId int not null identity(1,1) primary key,
+[Location] nvarchar(100) not null
+)
+
+CREATE TABLE Weather(
+WeatherId int not null identity(1,1) primary key,
+[Description] nvarchar(100) not null
 )
 
 CREATE TABLE Fight(
@@ -61,16 +73,6 @@ UserId  uniqueidentifier FOREIGN KEY REFERENCES UserInfo(UserId) on delete no ac
 [Date] date default GetDate(),
 Comment nvarchar(1000),
 Parentcomment int Foreign key references Comment(CommentId)
-)
-
-CREATE TABLE [Location](
-LocationId int not null identity(1,1) primary key,
-[Location] nvarchar(100) not null
-)
-
-CREATE TABLE Weather(
-WeatherId int not null identity(1,1) primary key,
-[Description] nvarchar(100) not null
 )
 
 CREATE TABLE Wager(

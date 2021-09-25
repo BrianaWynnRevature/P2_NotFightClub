@@ -13,6 +13,8 @@ import { ChatComponent } from './chat/chat.component';
 import { HttpClientModule } from '@angular/common/http';
 import { EditProfileComponent } from './user/edit-profile/edit-profile.component';
 import { UserListComponent } from './user/user-list/user-list.component';
+import { ageValidatorDirective } from './shared/age-validator.directive';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { UserListComponent } from './user/user-list/user-list.component';
     RegisterComponent,
     TestComponent,
     EditProfileComponent,
-    UserListComponent
+    UserListComponent,
+    ageValidatorDirective
+
   ],
   imports: [
     HttpClientModule,
