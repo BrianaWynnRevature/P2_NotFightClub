@@ -8,7 +8,7 @@ import { TestComponent } from './test/test.component';
 import { AuthGuard } from './guards/auth.guard';
 import { ChatComponent } from './chat/chat.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
-
+import { StoreComponent } from './store/store.component';
 
 
 
@@ -17,12 +17,9 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'test1', component: TestComponent, canActivate:[AuthGuard]},
   { path: 'chat', component: ChatComponent },
-
+  { path: 'store', component: StoreComponent },
   { path: 'my-profile', component: UserProfileComponent },
   { path: 'edit-profile', component: EditProfileComponent},
-
-  { path: 'my-profile', component: UserProfileComponent}
-
 ]
 
 
