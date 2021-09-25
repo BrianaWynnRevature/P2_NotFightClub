@@ -32,6 +32,9 @@ export class ChatComponent implements OnInit {
       username: this.username,
       message: this.message
     }).subscribe(() => this.message = '');
+    console.log(this.username);
+    console.log(this.message);
+    console.log(this.messages);
   }
 
 }
