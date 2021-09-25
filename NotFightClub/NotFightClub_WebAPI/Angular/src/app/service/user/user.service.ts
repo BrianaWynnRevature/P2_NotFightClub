@@ -14,4 +14,8 @@ export class UserService {
   UserList(): Observable<User[]> {
     return this.http.get<User[]>(`${this.url}/api/user`)
   }
+
+  Register(user: User): void{
+    //this.http.post<User>()
+  }
 }
