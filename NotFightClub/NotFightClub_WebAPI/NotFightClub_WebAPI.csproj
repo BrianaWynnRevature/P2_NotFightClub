@@ -17,6 +17,9 @@
 
   <ItemGroup>
 	<Content Include="Angular\node_modules\%40ampproject\remapping\package.json" />
+	<Content Include="Angular\node_modules\bcryptjs\.vscode\settings.json" />
+	<Content Include="Angular\node_modules\bcryptjs\src\bower.json" />
+	<Content Include="Angular\node_modules\bcryptjs\tests\quickbrown.txt" />
     <Content Include="Angular\node_modules\bootstrap\dist\css\bootstrap-grid.css" />
     <Content Include="Angular\node_modules\bootstrap\dist\css\bootstrap-grid.min.css" />
     <Content Include="Angular\node_modules\bootstrap\dist\css\bootstrap-grid.rtl.css" />
@@ -42,6 +45,25 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Angular\node_modules\bcryptjs\.npmignore" />
+    <None Include="Angular\node_modules\bcryptjs\bin\bcrypt" />
+    <None Include="Angular\node_modules\bcryptjs\dist\bcrypt.js" />
+    <None Include="Angular\node_modules\bcryptjs\dist\bcrypt.min.js" />
+    <None Include="Angular\node_modules\bcryptjs\dist\bcrypt.min.js.gz" />
+    <None Include="Angular\node_modules\bcryptjs\dist\bcrypt.min.map" />
+    <None Include="Angular\node_modules\bcryptjs\dist\README.md" />
+    <None Include="Angular\node_modules\bcryptjs\externs\bcrypt.js" />
+    <None Include="Angular\node_modules\bcryptjs\externs\minimal-env.js" />
+    <None Include="Angular\node_modules\bcryptjs\scripts\build.js" />
+    <None Include="Angular\node_modules\bcryptjs\src\bcrypt.js" />
+    <None Include="Angular\node_modules\bcryptjs\src\bcrypt\impl.js" />
+    <None Include="Angular\node_modules\bcryptjs\src\bcrypt\prng\accum.js" />
+    <None Include="Angular\node_modules\bcryptjs\src\bcrypt\prng\isaac.js" />
+    <None Include="Angular\node_modules\bcryptjs\src\bcrypt\prng\README.md" />
+    <None Include="Angular\node_modules\bcryptjs\src\bcrypt\util.js" />
+    <None Include="Angular\node_modules\bcryptjs\src\bcrypt\util\base64.js" />
+    <None Include="Angular\node_modules\bcryptjs\src\wrap.js" />
+    <None Include="Angular\node_modules\bcryptjs\tests\suite.js" />
     <None Include="Angular\node_modules\bootstrap\dist\css\bootstrap-grid.css.map" />
     <None Include="Angular\node_modules\bootstrap\dist\css\bootstrap-grid.min.css.map" />
     <None Include="Angular\node_modules\bootstrap\dist\css\bootstrap-grid.rtl.css.map" />
