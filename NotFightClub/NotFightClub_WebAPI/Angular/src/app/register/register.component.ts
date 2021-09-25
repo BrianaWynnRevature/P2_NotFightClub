@@ -10,6 +10,7 @@ export class RegisterComponent implements OnInit {
 
   constructor() { }
   isFormInValid = false;
+  //isAgeInvalid = true;
 
   ngOnInit(): void {
   }
@@ -27,11 +28,16 @@ export class RegisterComponent implements OnInit {
 
     //this.checkCredentials(signInForm);
 
-
+    //this.notOldEnough(registerForm);
 
   }
 
   //notOldEnough(registerForm: NgForm): boolean {
-
+  //  console.log("i'm here!")
+  //  const date = registerForm.value.DOB;
+  //  console.log(date);
+  //  return true;
   //}
+
+  
 }
