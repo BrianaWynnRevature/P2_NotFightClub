@@ -5,7 +5,7 @@ CREATE DATABASE P2_NotFightClub
 Go
 
 CREATE TABLE UserInfo(
-UserId uniqueidentifier not null default newId(),
+UserId uniqueidentifier not null default newId() primary key,
 UserName nvarchar(50) not null,
 PWord nvarchar(100) not null,
 Email nvarchar(50),
