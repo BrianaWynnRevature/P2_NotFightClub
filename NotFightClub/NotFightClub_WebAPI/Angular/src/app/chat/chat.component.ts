@@ -28,6 +28,8 @@ export class ChatComponent implements OnInit {
   }
 
   submit(): void {
+    //this.messages.push(this.message);
+    console.log(this.messages);
     this.http.post('http://localhost:5000/api/messages', {
       username: this.username,
       message: this.message

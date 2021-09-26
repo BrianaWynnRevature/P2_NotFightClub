@@ -28,7 +28,7 @@ namespace NotFightClub_WebAPI.Controllers
         options);
 
       await pusher.TriggerAsync(
-        "chat",
+        "not-fight-chat",
         "message",
         new 
         { 
