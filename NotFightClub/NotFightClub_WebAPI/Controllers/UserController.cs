@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using NotFightClub_Data;
 using NotFightClub_Models.Models;
 
@@ -13,6 +14,13 @@ namespace NotFightClub_WebAPI.Controllers
   [Route("api/[controller]")]
   public class UserController : Controller
   {
+    private readonly P2_NotFightClubContext _context;
+
+    public UserController(P2_NotFightClubContext context)
+    {
+      _context = context;
+    }
+
     // GET: api/values
     [HttpGet]
     public IEnumerable<UserInfo> Get()
@@ -24,11 +32,12 @@ namespace NotFightClub_WebAPI.Controllers
     }
 
     // GET api/values/5
-    // [HttpGet("{id}")]
-    // public string Get(int id)
-    // {
-    //     return "value";
-    // }
+    [HttpGet("my-profile/{id}")]
+    public async Task<ActionResult<UserInfo>> GetUserById(Guid id)
+    {
+      var user = await _context.UserInfos.FindAsync(id);
+      return user;
+    }
 
     // // POST api/values
     // [HttpPost]
