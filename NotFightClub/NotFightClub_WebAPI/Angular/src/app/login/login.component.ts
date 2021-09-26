@@ -29,20 +29,13 @@ export class LoginComponent implements OnInit {
     //  this.areCredentialsInvalid = false;
     //  return;
     //}
-  
-    this.checkCredentials(signInForm);
+
+    const signInData: SignInData = new SignInData(signInForm.value.email, signInForm.value.password);
+    this.authenticationService.authenticate(signInData);
     
   }
 
-  private checkCredentials(signInForm: NgForm) {
-    const signInData: SignInData = new SignInData(signInForm.value.email, signInForm.value.password);
-    
-    if (!this.authenticationService.authenticate(signInData)) {
-      this.isFormInValid = false;
-      this.areCredentialsInvalid = true;
-    }
-    console.log(signInForm.value)
-  }
+
 
  
 }
