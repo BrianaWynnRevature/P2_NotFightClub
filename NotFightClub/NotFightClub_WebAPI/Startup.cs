@@ -9,6 +9,11 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using NotFightClub_Data;
+using NotFightClub_Logic.Interfaces;
+using NotFightClub_Logic.Mappers;
+using NotFightClub_Logic.Repositiories;
+using NotFightClub_Models.Models;
+using NotFightClub_Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -51,6 +56,8 @@ namespace NotFightClub_WebAPI
       //    }
       //});
       services.AddDbContext<P2_NotFightClubContext>();
+      services.AddSingleton<IRepository<ViewUserInfo>, UserRepository>();
+      services.AddSingleton<IMapper<UserInfo, ViewUserInfo>, UserInfoMapper>();
       services.AddControllers();
       services.AddSwaggerGen(c =>
       {

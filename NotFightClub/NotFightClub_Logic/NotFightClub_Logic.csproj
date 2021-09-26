@@ -14,9 +14,4 @@
     <ProjectReference Include="..\NotFightClub_Models\NotFightClub_Models.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Mappers\" />
-    <Folder Include="Interfaces\" />
-  </ItemGroup>
-
 </Project>
