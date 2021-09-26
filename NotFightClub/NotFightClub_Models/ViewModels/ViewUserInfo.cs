@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NotFightClub_Models.ViewModels
 {
-    class ViewUserInfo
+    public class ViewUserInfo
     {
         //public UserInfo()
         //{
@@ -15,7 +15,7 @@ namespace NotFightClub_Models.ViewModels
         //    Wagers = new HashSet<Wager>();
         //}
 
-        public Guid UserId { get; set; }
+        public Guid? UserId { get; set; }
         public string UserName { get; set; }
         public string Pword { get; set; }
         public string Email { get; set; }

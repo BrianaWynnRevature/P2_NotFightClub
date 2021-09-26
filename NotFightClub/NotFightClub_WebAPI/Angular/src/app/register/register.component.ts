@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import * as bcrypt from 'bcryptjs';
 import { User } from '../interfaces/user';
 import { UserService } from '../service/user/user.service';
+import { Guid } from "guid-typescript";
 
 @Component({
   selector: 'app-register',
@@ -12,6 +13,7 @@ import { UserService } from '../service/user/user.service';
 export class RegisterComponent implements OnInit {
 
   constructor(private userService: UserService) { }
+   public id: Guid | undefined;
 
 
 
@@ -24,9 +26,10 @@ export class RegisterComponent implements OnInit {
    //hash the passwords
    //pass the user to the authentication service
    //call the user service to send the information to the database
+   
 
     let userC: User = {
-      userId: 0,
+      userId: null,
       userName: registerForm.value.username,
       pword: '',
       email: registerForm.value.email,
@@ -41,7 +44,7 @@ export class RegisterComponent implements OnInit {
       //console.log(salt);
       bcrypt.hash(registerForm.value.password, salt).then(hash => {
         userC.pword = hash;
-        this.userService.Register(userC);
+        this.userService.Register(userC).subscribe(user => console.log(`response from Controller: ${user}`));
         //console.log(userC.pword);
         //console.log(hash);
       })
