@@ -7,16 +7,22 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.10" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.10">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
+        <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.10">
+        <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference> 
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+      
     <PackageReference Include="PusherServer" Version="4.6.1" />
     <None Remove="Angular\src\app\model\signInData.ts" />
   </ItemGroup>
 
   <ItemGroup>
 	<Content Include="Angular\node_modules\%40ampproject\remapping\package.json" />
+	<Content Include="Angular\node_modules\bcryptjs\.vscode\settings.json" />
+	<Content Include="Angular\node_modules\bcryptjs\src\bower.json" />
+	<Content Include="Angular\node_modules\bcryptjs\tests\quickbrown.txt" />
     <Content Include="Angular\node_modules\bootstrap\dist\css\bootstrap-grid.css" />
     <Content Include="Angular\node_modules\bootstrap\dist\css\bootstrap-grid.min.css" />
     <Content Include="Angular\node_modules\bootstrap\dist\css\bootstrap-grid.rtl.css" />
@@ -42,6 +48,25 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Angular\node_modules\bcryptjs\.npmignore" />
+    <None Include="Angular\node_modules\bcryptjs\bin\bcrypt" />
+    <None Include="Angular\node_modules\bcryptjs\dist\bcrypt.js" />
+    <None Include="Angular\node_modules\bcryptjs\dist\bcrypt.min.js" />
+    <None Include="Angular\node_modules\bcryptjs\dist\bcrypt.min.js.gz" />
+    <None Include="Angular\node_modules\bcryptjs\dist\bcrypt.min.map" />
+    <None Include="Angular\node_modules\bcryptjs\dist\README.md" />
+    <None Include="Angular\node_modules\bcryptjs\externs\bcrypt.js" />
+    <None Include="Angular\node_modules\bcryptjs\externs\minimal-env.js" />
+    <None Include="Angular\node_modules\bcryptjs\scripts\build.js" />
+    <None Include="Angular\node_modules\bcryptjs\src\bcrypt.js" />
+    <None Include="Angular\node_modules\bcryptjs\src\bcrypt\impl.js" />
+    <None Include="Angular\node_modules\bcryptjs\src\bcrypt\prng\accum.js" />
+    <None Include="Angular\node_modules\bcryptjs\src\bcrypt\prng\isaac.js" />
+    <None Include="Angular\node_modules\bcryptjs\src\bcrypt\prng\README.md" />
+    <None Include="Angular\node_modules\bcryptjs\src\bcrypt\util.js" />
+    <None Include="Angular\node_modules\bcryptjs\src\bcrypt\util\base64.js" />
+    <None Include="Angular\node_modules\bcryptjs\src\wrap.js" />
+    <None Include="Angular\node_modules\bcryptjs\tests\suite.js" />
     <None Include="Angular\node_modules\bootstrap\dist\css\bootstrap-grid.css.map" />
     <None Include="Angular\node_modules\bootstrap\dist\css\bootstrap-grid.min.css.map" />
     <None Include="Angular\node_modules\bootstrap\dist\css\bootstrap-grid.rtl.css.map" />
@@ -345,6 +370,9 @@
   <ItemGroup>
     <ProjectReference Include="..\NotFightClub_Logic\NotFightClub_Logic.csproj" />
     <ProjectReference Include="..\NotFightClub_Models\NotFightClub_Models.csproj" />
+    <ProjectReference Include="..\NotFightClub_Data\NotFightClub_Data.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
   </ItemGroup>
 
   <ItemGroup>
