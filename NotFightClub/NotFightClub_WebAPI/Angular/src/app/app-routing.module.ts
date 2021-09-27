@@ -7,7 +7,7 @@ import { RegisterComponent } from './register/register.component';
 import { TestComponent } from './test/test.component';
 import { AuthGuard } from './guards/auth.guard';
 import { ChatComponent } from './chat/chat.component';
-import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { EditProfileComponent } from './user/edit-profile/edit-profile.component';
 import { StoreComponent } from './store/store.component';
 import { UserListComponent } from './user/user-list/user-list.component';
 
