@@ -17,7 +17,7 @@ namespace NotFightClub_WebAPI.Controllers
   [Route("api/[controller]")]
   public class UserController : Controller
   {
-    private readonly P2_NotFightClubContext _context;
+        private readonly P2_NotFightClubContext _context;
 
         private readonly IRepository<ViewUserInfo> _ur;
 
@@ -42,13 +42,22 @@ namespace NotFightClub_WebAPI.Controllers
         }
 
 
-    // GET api/values/5
-    [HttpGet("my-profile/{id}")]
-    public async Task<ActionResult<UserInfo>> GetUserById(Guid id)
-    {
-      var user = await _context.UserInfos.FindAsync(id);
-      return user;
-    }
+        // GET api/values/5
+        [HttpGet("my-profile/{id}")]
+        public async Task<ActionResult<UserInfo>> GetUserById(Guid id)
+        {
+          var user = await _context.UserInfos.FindAsync(id);
+          return user;
+        }
+
+        //Get 
+        [HttpGet("/[action]/{email}")]
+        public async Task<ActionResult<ViewUserInfo>> Login(string email)
+        {
+            if (!ModelState.IsValid) return BadRequest("Invalid data.");
+            var loggedUser = await _ur.Read(email);
+            return Ok(loggedUser);
+        }
 
 
         // POST api/values

@@ -9,6 +9,8 @@ namespace NotFightClub_Logic.Interfaces
 {
     public interface IRepository<T>
     {
-        public Task<T> Add(T obj); 
+        public Task<T> Add(T obj);
+
+        public Task<T> Read(string selector);
     }
 }

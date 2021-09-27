@@ -20,14 +20,13 @@ export class UserService {
 
 
 
+  Login(email: string): Observable<User> {
+    //I just get the user and send it back
+    return this.http.get<User>(`${this.url}/Login/${email}`)
+  }
 
   Register(user: User): Observable<User> {
-    //let httpOptions = {
-    //  headers: new HttpHeaders({
-    //    'Content-Type': 'application/json'
-    //    // Authorization: 'my-auth-token'
-    //  })
-    //};
+ 
     console.log('Making call to controller:')
     console.log(user);
     return this.http.post<User>(`${this.url}/Register`, user, {

@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { EditProfileComponent } from './user/edit-profile/edit-profile.component';
 import { UserListComponent } from './user/user-list/user-list.component';
 import { ageValidatorDirective } from './shared/age-validator.directive';
+import { CharacterComponent } from './character/character.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { ageValidatorDirective } from './shared/age-validator.directive';
     TestComponent,
     EditProfileComponent,
     UserListComponent,
-    ageValidatorDirective
+    ageValidatorDirective,
+    CharacterComponent
 
   ],
   imports: [

@@ -35,6 +35,14 @@ namespace NotFightClub_Logic.Repositiories
 
            return _um.ModelToViewModel(registeredUser);
         }
+
+        public async Task<ViewUserInfo> Read(string email)
+        {
+          UserInfo loggedUser =  await _dbContext.UserInfos.FromSqlInterpolated($"select * from UserInfo where email = {email}").FirstOrDefaultAsync();
+            
+                return _um.ModelToViewModel(loggedUser);
+            
+        }
     }
 
 
