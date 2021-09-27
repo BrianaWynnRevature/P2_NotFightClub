@@ -4,6 +4,7 @@ import * as bcrypt from 'bcryptjs';
 import { UserR } from '../interfaces/userR';
 import { UserService } from '../service/user/user.service';
 import { Guid } from "guid-typescript";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -12,8 +13,9 @@ import { Guid } from "guid-typescript";
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private userService: UserService) { }
-   public id: Guid | undefined;
+  constructor(private userService: UserService, private router: Router) { }
+  public id: Guid | undefined;
+  public registerSuccess: boolean | undefined;
 
 
 
@@ -44,7 +46,10 @@ export class RegisterComponent implements OnInit {
       //console.log(salt);
       bcrypt.hash(registerForm.value.password, salt).then(hash => {
         userC.pword = hash;
-        this.userService.Register(userC).subscribe(user => console.log(`response from Controller: ${user}`));
+        this.userService.Register(userC).subscribe(user => {
+          console.log(`response from Controller: ${user}`)
+          this.router.navigate(['login'])
+        });
         //console.log(userC.pword);
         //console.log(hash);
       })
