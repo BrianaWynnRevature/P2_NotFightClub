@@ -43,8 +43,17 @@ export class LoginComponent implements OnInit {
 
     //make a call to the authentication service to get a user from the database
    
-    let OUser = this.authenticationService.Login(signInData); //pass data to authentication service
-    console.log(`login component: ${OUser}`);
+    let authenticated = this.authenticationService.Login(signInData); //pass data to authentication service
+    authenticated.then(result => {
+      if (result) {
+        //redirect user to home page
+      }
+        //display invalid creditials message
+    }
+
+
+      , error => console.log(error))
+    //console.log(`login component: ${OUser}`);
     //save that user to session storage
     
   }
@@ -52,4 +61,7 @@ export class LoginComponent implements OnInit {
 
 
  
+}
+
+
 }

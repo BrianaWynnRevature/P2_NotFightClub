@@ -5,7 +5,8 @@ import { User } from '../../interfaces/user';
 import { SignInData } from '../../model/signInData';
 import { UserService } from '../user/user.service';
 import * as bcrypt from 'bcryptjs';
-import { tap } from 'rxjs/operators';
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -19,25 +20,65 @@ export class AuthenticationService {
   //mockUser data to test if the functions work
   //private readonly mockedUser = new SignInData('bnwynn16@gmail.com', 'test123')
   isAuthenticated = false; //controlling which navbar items are available when not logged in
+  
 
   constructor(private router: Router, private userService: UserService) { }
 
 
-  Login(signInData: SignInData):Observable<User> {
-    let password;
-    let OUser = this.userService.Login(signInData.getEmail())
+  async Login(signInData: SignInData):Promise<Boolean>{
+    let password = signInData.getPassword();
+    let OUser = await this.userService.Login(signInData.getEmail())
     let observer = {
       next: (user: User) =>{
-        console.log(user.pword)
-        //set the password to an outside variable that can be used
-        password = user.pword;
+        //put the user in session storage
+        sessionStorage.setItem('user', JSON.stringify(user));
+        console.log(`Should've added to session already`)
           },
       error: (err: Error) => console.log(`there was an error`)
     }
-    console.log(`this is the password var: ${password}`);
-    console.log(OUser.subscribe(observer));
-    return OUser;
+    OUser.subscribe(observer);
     
+   return this.Authenticate(password);
+    
+  }
+    async Authenticate(password: string):Promise<Boolean> {
+      //get the user from session
+      const OUser = this.RetrievefromSession();
+   
+      console.log(`in authenticate`)
+      if (OUser === null) {
+        console.log('Error Occurred')
+       // return null;
+      } else {
+        await bcrypt.compare(password, OUser.pword)
+          .then(result => 
+            this.isAuthenticated = result
+           
+          
+            , error => console.log(error));
+        
+      }
+      return this.isAuthenticated;
+      
+      //compare password there with the password passed in
+      
+      
+        // if they match return true
+        //if they don't match return false
+          //remove user from session
+      
+  }
+
+
+  RetrievefromSession(): User|null {
+    const user = sessionStorage.getItem('user');
+    if (user === null) {
+      console.log('Error Occurred')
+      return null;
+    } else {
+      let OUser: User = JSON.parse(user);
+      return OUser;
+    }
   }
   
 
@@ -114,6 +155,4 @@ export class AuthenticationService {
 
 }
 
-function ngOnInit() {
-    throw new Error('Function not implemented.');
-}
+
