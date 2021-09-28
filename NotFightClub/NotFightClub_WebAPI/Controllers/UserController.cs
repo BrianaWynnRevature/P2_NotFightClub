@@ -19,6 +19,7 @@ namespace NotFightClub_WebAPI.Controllers
   {
         private readonly P2_NotFightClubContext _context;
 
+
         private readonly IRepository<ViewUserInfo, string> _ur;
 
         public UserController(IRepository<ViewUserInfo, string> ur, P2_NotFightClubContext context)
@@ -28,27 +29,20 @@ namespace NotFightClub_WebAPI.Controllers
         }
        
 
-   
-
-    
-        // GET: api/values
-        [HttpGet]
-        public IEnumerable<UserInfo> Get()
-        {
-            using (P2_NotFightClubContext entities = new P2_NotFightClubContext())
-            {
-                return entities.UserInfos.ToList();
-            }
-        }
 
 
-        // GET api/values/5
-        [HttpGet("my-profile/{id}")]
-        public async Task<ActionResult<UserInfo>> GetUserById(Guid id)
-        {
-          var user = await _context.UserInfos.FindAsync(id);
-          return user;
-        }
+    // GET: api/values
+    [HttpGet]
+    public IEnumerable<UserInfo> Get()
+    {
+      using (P2_NotFightClubContext entities = new P2_NotFightClubContext())
+      {
+        return entities.UserInfos.ToList();
+      }
+    }
+
+
+
 
         //Get 
         [HttpGet("/[action]/{email}")]
@@ -59,29 +53,38 @@ namespace NotFightClub_WebAPI.Controllers
             return Ok(loggedUser);
         }
 
-
-        // POST api/values
-        [HttpPost("/[action]")]
-        public async Task<ActionResult<ViewUserInfo>> Register([FromBody] ViewUserInfo viewUser)
-        {
-            if (!ModelState.IsValid) return BadRequest("Invalid data.");
-            //call to repository to add user
-            //return the result
-            //Console.WriteLine(viewUser);
-            var registeredUser = await _ur.Add(viewUser);
-            return Ok(registeredUser);
-        }
-
-        // // PUT api/values/5
-        // [HttpPut("{id}")]
-        // public void Put(int id, [FromBody] string value)
-        // 
-        // }
-
-        // // DELETE api/values/5
-        // [HttpDelete("{id}")]
-        // public void Delete(int id)
-        // {
-        // }
+    // GET api/values/5
+    [HttpGet("/users/{id}")]
+    public async Task<ActionResult<UserInfo>> GetUserById(Guid id)
+    {
+      var user = await _context.UserInfos.FindAsync(id);
+      return user;
     }
+
+
+
+    // POST api/values
+    [HttpPost("/[action]")]
+    public async Task<ActionResult<ViewUserInfo>> Register([FromBody] ViewUserInfo viewUser)
+    {
+      if (!ModelState.IsValid) return BadRequest("Invalid data.");
+      //call to repository to add user
+      //return the result
+      //Console.WriteLine(viewUser);
+      var registeredUser = await _ur.Add(viewUser);
+      return Ok(registeredUser);
+    }
+
+    // // PUT api/values/5
+    // [HttpPut("{id}")]
+    // public void Put(int id, [FromBody] string value)
+    // 
+    // }
+
+    // // DELETE api/values/5
+    // [HttpDelete("{id}")]
+    // public void Delete(int id)
+    // {
+    // }
+  }
 }

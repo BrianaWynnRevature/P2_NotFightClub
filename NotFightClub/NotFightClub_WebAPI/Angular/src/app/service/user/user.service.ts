@@ -4,6 +4,7 @@ import { Observable, of } from 'rxjs';
 import { User } from 'src/app/interfaces/user';
 import { catchError, map, tap } from 'rxjs/operators';
 import { UserR } from '../../interfaces/userR';
+import { Guid } from 'guid-typescript';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,10 @@ export class UserService {
   //create functions for http requests
   UserList(): Observable<User[]> {
     return this.http.get<User[]>(`${this.url}/api/user`)
+  }
+
+  getUserById(id: Guid): Observable<User>{
+    return this.http.get<User>(`${this.url}/users/` + id).pipe(map((user:User)=>user))
   }
 
 
