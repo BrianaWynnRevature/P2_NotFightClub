@@ -50,8 +50,11 @@ export class LoginComponent implements OnInit {
         //redirect user to home page
         this.areCredentialsInvalid = false;
         this.router.navigate([''])
-        }
-        this.areCredentialsInvalid = true;
+        console.log('I made it to rerouter')
+      }
+      sessionStorage.clear();
+      this.areCredentialsInvalid = true;
+      sessionStorage.clear();
        
     }
 

@@ -15,6 +15,7 @@ import { EditProfileComponent } from './user/edit-profile/edit-profile.component
 import { UserListComponent } from './user/user-list/user-list.component';
 import { ageValidatorDirective } from './shared/age-validator.directive';
 import { CharacterComponent } from './character/character/character.component';
+import { HomeComponent } from './home/home.component';
 
 
 
@@ -31,6 +32,7 @@ import { CharacterComponent } from './character/character/character.component';
     UserListComponent,
     ageValidatorDirective,
     CharacterComponent,
+    HomeComponent,
  
 
   ],

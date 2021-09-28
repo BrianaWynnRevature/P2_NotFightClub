@@ -19,9 +19,9 @@ namespace NotFightClub_WebAPI.Controllers
   {
         private readonly P2_NotFightClubContext _context;
 
-        private readonly IRepository<ViewUserInfo> _ur;
+        private readonly IRepository<ViewUserInfo, string> _ur;
 
-        public UserController(IRepository<ViewUserInfo> ur, P2_NotFightClubContext context)
+        public UserController(IRepository<ViewUserInfo, string> ur, P2_NotFightClubContext context)
         {
             _ur = ur;
             _context = context;

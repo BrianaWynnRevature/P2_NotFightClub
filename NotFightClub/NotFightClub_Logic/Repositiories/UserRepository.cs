@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace NotFightClub_Logic.Repositiories
 {
-    public class UserRepository : IRepository<ViewUserInfo, int>
+    public class UserRepository : IRepository<ViewUserInfo, string>
     {
         private readonly P2_NotFightClubContext _dbContext = new P2_NotFightClubContext();
         private readonly IMapper<UserInfo, ViewUserInfo> _mapper;

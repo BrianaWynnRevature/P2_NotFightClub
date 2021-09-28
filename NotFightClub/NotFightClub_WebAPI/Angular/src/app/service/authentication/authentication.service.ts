@@ -52,8 +52,14 @@ export class AuthenticationService {
        // return null;
       } else {
         await bcrypt.compare(password, OUser.pword)
-          .then(result => 
+          .then(result => {
+            if (!result) {
+              console.log(`result: ${result}`)
+              sessionStorage.clear();
+            }
             this.isAuthenticated = result
+          }
+            
            
           
             , error => console.log(error));
