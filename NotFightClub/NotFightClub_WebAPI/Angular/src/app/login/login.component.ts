@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { SignInData } from '../model/signInData';
 import { AuthenticationService } from '../service/authentication/authentication.service';
 
@@ -10,9 +11,9 @@ import { AuthenticationService } from '../service/authentication/authentication.
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private authenticationService: AuthenticationService) { }
+  constructor(private authenticationService: AuthenticationService, private router: Router) { }
 
-  isFormInValid = false;
+  
   areCredentialsInvalid = false;
 
   ngOnInit(): void {
@@ -47,8 +48,11 @@ export class LoginComponent implements OnInit {
     authenticated.then(result => {
       if (result) {
         //redirect user to home page
-      }
-        //display invalid creditials message
+        this.areCredentialsInvalid = false;
+        this.router.navigate([''])
+        }
+        this.areCredentialsInvalid = true;
+       
     }
 
 
@@ -59,9 +63,13 @@ export class LoginComponent implements OnInit {
   }
 
 
-
+  authenticate(): boolean {
+    let authenticated = this.authenticationService.isAuthenticated;
+    console.log(`final auth: ${authenticated}`);
+    return authenticated;
+  }
  
 }
 
 
-}
+

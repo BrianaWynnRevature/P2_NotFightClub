@@ -4,6 +4,7 @@
       <form class="form-signin" #signInForm="ngForm" (ngSubmit)="onSubmit(signInForm)">
         <!--<img class="mb-4" src="/docs/5.1/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">-->
         <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+        <div *ngIf="areCredentialsInvalid">*Invalid Credentials! Please Register</div>
 
         <div class="form-floating">
           <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="email" required #email="ngModel" ngModel>
