@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Character } from '../../interfaces/character';
+import { Trait } from '../../interfaces/trait';
 import { User } from '../../interfaces/user';
+import { TraitService } from '../../service/trait/trait.service';
 
 @Component({
   selector: 'app-character',
@@ -10,15 +12,20 @@ import { User } from '../../interfaces/user';
 })
 export class CharacterComponent implements OnInit {
 
-  constructor() { }
+  constructor(private traitService: TraitService) { }
 
   //user!: User | null;
+
+  traitList: Trait[] = [];
 
   ngOnInit(): void {
     //get all the traits available and put them in a list
     // check user-list for example
-    //get user from session storage
-    //this.user = this.RetrievefromSession()
+    this.traitService.TraitList().subscribe(x => {
+      this.traitList = x
+    //  //get user from session storage
+    //  //this.user = this.RetrievefromSession()
+    })
   }
 
   //RetrievefromSession(): User | null {
@@ -49,7 +56,7 @@ export class CharacterComponent implements OnInit {
 
   onSubmitBaseForm(baseform: NgForm) {
     //add base form to the character being created
- 
+
     //add character name to the character being created
     this.character.name = baseform.value.charactername;
   }
