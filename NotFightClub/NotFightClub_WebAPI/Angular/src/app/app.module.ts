@@ -16,6 +16,10 @@ import { UserListComponent } from './user/user-list/user-list.component';
 import { ageValidatorDirective } from './shared/age-validator.directive';
 import { FightComponent } from './fight/fight.component';
 import { TimerComponent } from './timer/timer.component';
+import { CharacterComponent } from './character/character/character.component';
+import { HomeComponent } from './home/home.component';
+
+
 
 
 @NgModule({
@@ -31,7 +35,11 @@ import { TimerComponent } from './timer/timer.component';
     UserListComponent,
     ageValidatorDirective,
     FightComponent,
-    TimerComponent
+    TimerComponent,
+    CharacterComponent,
+    HomeComponent
+ 
+
 
   ],
   imports: [

@@ -7,8 +7,10 @@ using System.Threading.Tasks;
 
 namespace NotFightClub_Logic.Interfaces
 {
-    public interface IRepository<T>
+    public interface IRepository<T,Y>
     {
-        public Task<T> Add(T obj); 
+        public Task<T> Add(T obj);
+
+        public Task<T> Read(Y obj);
     }
 }

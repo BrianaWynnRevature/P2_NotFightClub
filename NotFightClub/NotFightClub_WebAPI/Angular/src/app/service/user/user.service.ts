@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { User } from 'src/app/interfaces/user';
 import { catchError, map, tap } from 'rxjs/operators';
+import { UserR } from '../../interfaces/userR';
+import { Guid } from 'guid-typescript';
 
 @Injectable({
   providedIn: 'root'
@@ -18,10 +20,18 @@ export class UserService {
     return this.http.get<User[]>(`${this.url}/api/user`)
   }
 
+  getUserById(id: Guid): Observable<User>{
+    return this.http.get<User>(`${this.url}/users/` + id).pipe(map((user:User)=>user))
+  }
 
 
 
-  Register(user: User): Observable<User> {
+  Login(email: string): Observable<UserR> {
+    //I just get the user and send it back
+    return this.http.get<UserR>(`${this.url}/Login/${email}`)
+  }
+
+  Register(user: UserR): Observable<UserR> {
     //let httpOptions = {
     //  headers: new HttpHeaders({
     //    'Content-Type': 'application/json'
@@ -30,13 +40,15 @@ export class UserService {
     //};
     console.log('Making call to controller:')
     console.log(user);
-    return this.http.post<User>(`${this.url}/Register`, user, {
+
+    return this.http.post<UserR>(`${this.url}/Register`, user, {
+
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })
        
     })
-      .pipe(catchError(this.handleError<User>('register User', user)));
+      .pipe(catchError(this.handleError<UserR>('register User', user)));
   }
 
     private handleError<T>(operation:string, result?:T) {

@@ -10,6 +10,8 @@ import { ChatComponent } from './chat/chat.component';
 import { EditProfileComponent } from './user/edit-profile/edit-profile.component';
 import { StoreComponent } from './store/store.component';
 import { UserListComponent } from './user/user-list/user-list.component';
+import { CharacterComponent } from './character/character/character.component';
+import { HomeComponent } from './home/home.component';
 
 
 
@@ -21,9 +23,11 @@ const routes: Routes = [
   { path: 'test1', component: TestComponent, canActivate:[AuthGuard]},
   { path: 'chat', component: ChatComponent },
   { path: 'store', component: StoreComponent },
-  { path: 'my-profile', component: UserProfileComponent },
-  { path: 'edit-profile', component: EditProfileComponent },
-  { path: 'user-list', component: UserListComponent}
+  { path: 'edit-profile', component: EditProfileComponent }, 
+  { path: 'character', component: CharacterComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'users', component: UserListComponent },
+  { path: 'users/:userId', component: UserProfileComponent}
 
 ]
 
