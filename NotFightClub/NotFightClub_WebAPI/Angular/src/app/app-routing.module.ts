@@ -21,10 +21,9 @@ const routes: Routes = [
   { path: 'test1', component: TestComponent, canActivate:[AuthGuard]},
   { path: 'chat', component: ChatComponent },
   { path: 'store', component: StoreComponent },
-  { path: 'my-profile', component: UserProfileComponent },
   { path: 'edit-profile', component: EditProfileComponent },
-  { path: 'user-list', component: UserListComponent}
-
+  { path: 'users', component: UserListComponent },
+  { path: 'users/:userId', component: UserProfileComponent}
 ]
 
 

@@ -19,31 +19,31 @@ namespace NotFightClub_WebAPI.Controllers
   {
     private readonly P2_NotFightClubContext _context;
 
-        private readonly IRepository<ViewUserInfo> _ur;
+    private readonly IRepository<ViewUserInfo> _ur;
 
-        public UserController(IRepository<ViewUserInfo> ur, P2_NotFightClubContext context)
-        {
-            _ur = ur;
-            _context = context;
-        }
-       
+    public UserController(IRepository<ViewUserInfo> ur, P2_NotFightClubContext context)
+    {
+      _ur = ur;
+      _context = context;
+    }
 
-   
 
-    
-        // GET: api/values
-        [HttpGet]
-        public IEnumerable<UserInfo> Get()
-        {
-            using (P2_NotFightClubContext entities = new P2_NotFightClubContext())
-            {
-                return entities.UserInfos.ToList();
-            }
-        }
+
+
+
+    // GET: api/values
+    [HttpGet]
+    public IEnumerable<UserInfo> Get()
+    {
+      using (P2_NotFightClubContext entities = new P2_NotFightClubContext())
+      {
+        return entities.UserInfos.ToList();
+      }
+    }
 
 
     // GET api/values/5
-    [HttpGet("my-profile/{id}")]
+    [HttpGet("/users/{id}")]
     public async Task<ActionResult<UserInfo>> GetUserById(Guid id)
     {
       var user = await _context.UserInfos.FindAsync(id);
@@ -51,28 +51,28 @@ namespace NotFightClub_WebAPI.Controllers
     }
 
 
-        // POST api/values
-        [HttpPost("/[action]")]
-        public async Task<ActionResult<ViewUserInfo>> Register([FromBody] ViewUserInfo viewUser)
-        {
-            if (!ModelState.IsValid) return BadRequest("Invalid data.");
-            //call to repository to add user
-            //return the result
-            //Console.WriteLine(viewUser);
-            var registeredUser = await _ur.Add(viewUser);
-            return Ok(registeredUser);
-        }
-
-        // // PUT api/values/5
-        // [HttpPut("{id}")]
-        // public void Put(int id, [FromBody] string value)
-        // 
-        // }
-
-        // // DELETE api/values/5
-        // [HttpDelete("{id}")]
-        // public void Delete(int id)
-        // {
-        // }
+    // POST api/values
+    [HttpPost("/[action]")]
+    public async Task<ActionResult<ViewUserInfo>> Register([FromBody] ViewUserInfo viewUser)
+    {
+      if (!ModelState.IsValid) return BadRequest("Invalid data.");
+      //call to repository to add user
+      //return the result
+      //Console.WriteLine(viewUser);
+      var registeredUser = await _ur.Add(viewUser);
+      return Ok(registeredUser);
     }
+
+    // // PUT api/values/5
+    // [HttpPut("{id}")]
+    // public void Put(int id, [FromBody] string value)
+    // 
+    // }
+
+    // // DELETE api/values/5
+    // [HttpDelete("{id}")]
+    // public void Delete(int id)
+    // {
+    // }
+  }
 }
