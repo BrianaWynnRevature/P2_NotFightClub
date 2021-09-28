@@ -26,6 +26,10 @@ export class UserService {
 
 
 
+  Login(email: string): Observable<UserR> {
+    //I just get the user and send it back
+    return this.http.get<UserR>(`${this.url}/Login/${email}`)
+  }
 
   Register(user: UserR): Observable<UserR> {
     //let httpOptions = {

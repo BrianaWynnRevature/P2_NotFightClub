@@ -377,6 +377,7 @@
 
   <ItemGroup>
     <Folder Include="Angular\src\app\guards\" />
+    <Folder Include="Angular\src\app\character\" />
     <Folder Include="Angular\src\app\service\" />
   </ItemGroup>
 
