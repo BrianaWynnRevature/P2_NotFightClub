@@ -21,10 +21,8 @@ const routes: Routes = [
   { path: 'test1', component: TestComponent, canActivate:[AuthGuard]},
   { path: 'chat', component: ChatComponent },
   { path: 'store', component: StoreComponent },
-  { path: 'my-profile', component: UserProfileComponent },
   { path: 'edit-profile', component: EditProfileComponent },
-  { path: 'user-list', component: UserListComponent}
-
+  { path: 'users', children: [ { path: '', component: UserListComponent }, { path: ':id', component: UserProfileComponent}]}
 ]
 
 
