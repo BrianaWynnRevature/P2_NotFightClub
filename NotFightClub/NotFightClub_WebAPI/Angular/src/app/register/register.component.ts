@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import * as bcrypt from 'bcryptjs';
-import { User } from '../interfaces/user';
+import { UserR } from '../interfaces/userR';
 import { UserService } from '../service/user/user.service';
 import { Guid } from "guid-typescript";
 import { Router } from '@angular/router';
@@ -30,7 +30,7 @@ export class RegisterComponent implements OnInit {
    //call the user service to send the information to the database
    
 
-    let userC: User = {
+    let userC: UserR = {
       userId: null,
       userName: registerForm.value.username,
       pword: '',

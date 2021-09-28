@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { User } from 'src/app/interfaces/user';
 import { catchError, map, tap } from 'rxjs/operators';
+import { UserR } from '../../interfaces/userR';
 
 @Injectable({
   providedIn: 'root'
@@ -26,16 +27,23 @@ export class UserService {
   }
 
   Register(user: User): Observable<User> {
- 
+    //let httpOptions = {
+    //  headers: new HttpHeaders({
+    //    'Content-Type': 'application/json'
+    //    // Authorization: 'my-auth-token'
+    //  })
+    //};
     console.log('Making call to controller:')
     console.log(user);
-    return this.http.post<User>(`${this.url}/Register`, user, {
+
+    return this.http.post<UserR>(`${this.url}/Register`, user, {
+
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })
        
     })
-      .pipe(catchError(this.handleError<User>('register User', user)));
+      .pipe(catchError(this.handleError<UserR>('register User', user)));
   }
 
     private handleError<T>(operation:string, result?:T) {
