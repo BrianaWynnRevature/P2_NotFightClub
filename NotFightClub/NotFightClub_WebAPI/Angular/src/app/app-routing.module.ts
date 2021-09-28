@@ -22,7 +22,8 @@ const routes: Routes = [
   { path: 'chat', component: ChatComponent },
   { path: 'store', component: StoreComponent },
   { path: 'edit-profile', component: EditProfileComponent },
-  { path: 'users', children: [ { path: '', component: UserListComponent }, { path: ':id', component: UserProfileComponent}]}
+  { path: 'users', component: UserListComponent },
+  { path: 'users/:userId', component: UserProfileComponent}
 ]
 
 
