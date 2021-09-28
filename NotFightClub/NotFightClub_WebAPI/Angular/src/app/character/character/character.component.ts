@@ -59,6 +59,7 @@ export class CharacterComponent implements OnInit {
 
     //add character name to the character being created
     this.character.name = baseform.value.charactername;
+    console.log(`list of traits: ${this.traitList}`)
   }
 
 }

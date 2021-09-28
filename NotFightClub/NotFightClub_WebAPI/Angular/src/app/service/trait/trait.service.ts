@@ -13,7 +13,7 @@ export class TraitService {
   private url = 'http://localhost:5000';
 
   TraitList(): Observable<Trait[]> {
-    return this.http.get<Trait[]>(`${this.url}/api/user`)
+    return this.http.get<Trait[]>(`${this.url}/api/trait`)
   }
 
 
