@@ -150,6 +150,8 @@ export class AuthenticationService {
     this.isAuthenticated = false;
     //return them to the home page
     this.router.navigate(['']);
+    //remove all data from session storage
+    sessionStorage.clear();
     console.log('User signed out')
   }
   

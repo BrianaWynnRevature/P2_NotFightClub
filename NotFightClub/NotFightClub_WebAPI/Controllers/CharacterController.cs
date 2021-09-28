@@ -14,49 +14,50 @@ namespace NotFightClub_WebAPI.Controllers
     [ApiController]
     public class CharacterController : ControllerBase
     {
-        private readonly IRepository<ViewCharacter> _cr;
+        private readonly IRepository<ViewCharacter, int> _repo;
 
-        public CharacterController(IRepository<ViewCharacter> cr)
+        public CharacterController(IRepository<ViewCharacter, int> repo)
         {
-            _cr = cr;
+            _repo = repo;
            
         }
 
         // GET: api/<CharacterController>
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
+        //[HttpGet]
+        //public IEnumerable<string> Get()
+        //{
+        //    return new string[] { "value1", "value2" };
+        //}
 
         // GET api/<CharacterController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public async Task<ActionResult<ViewCharacter>> Get(int id)
         {
-            return "value";
+            var selectedCharacter = await _repo.Read(id);
+            return Ok(selectedCharacter);
         }
 
         // POST api/<CharacterController>
-        [HttpPost("/[action]")]
+        [HttpPost]
         public async Task<ActionResult<ViewCharacter>> Post([FromBody] ViewCharacter viewCharacter)
         {
             if (!ModelState.IsValid) return BadRequest("Invalid data.");
             //call to repository to add user
             //return the result
             //Console.WriteLine(viewUser);
-            var createdCharacter = await _cr.Add(viewCharacter);
+            var createdCharacter = await _repo.Add(viewCharacter);
             return Ok(createdCharacter);
         }
-        // PUT api/<CharacterController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
+        //// PUT api/<CharacterController>/5
+        //[HttpPut("{id}")]
+        //public void Put(int id, [FromBody] string value)
+        //{
+        //}
 
-        // DELETE api/<CharacterController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
+        //// DELETE api/<CharacterController>/5
+        //[HttpDelete("{id}")]
+        //public void Delete(int id)
+        //{
+        //}
     }
 }

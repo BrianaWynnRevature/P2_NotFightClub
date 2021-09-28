@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace NotFightClub_Logic.Repositiories
 {
-    public class UserRepository : IRepository<ViewUserInfo>
+    public class UserRepository : IRepository<ViewUserInfo, int>
     {
         private readonly P2_NotFightClubContext _dbContext = new P2_NotFightClubContext();
         private readonly IMapper<UserInfo, ViewUserInfo> _mapper;
@@ -40,10 +40,15 @@ namespace NotFightClub_Logic.Repositiories
         {
           UserInfo loggedUser =  await _dbContext.UserInfos.FromSqlInterpolated($"select * from UserInfo where email = {email}").FirstOrDefaultAsync();
             
-                return _um.ModelToViewModel(loggedUser);
+                return _mapper.ModelToViewModel(loggedUser);
             
+        }
+
+        public Task<ViewUserInfo> Read(int obj)
+        {
+            throw new NotImplementedException();
         }
     }
 
-
+    
 }

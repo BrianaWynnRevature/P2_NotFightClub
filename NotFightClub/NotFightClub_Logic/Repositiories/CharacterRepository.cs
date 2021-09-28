@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace NotFightClub_Logic.Repositiories
 {
-    public class CharacterRepository: IRepository<ViewCharacter>
+    public class CharacterRepository: IRepository<ViewCharacter, int>
     {
         private readonly P2_NotFightClubContext _dbContext = new P2_NotFightClubContext();
         private readonly IMapper<Character, ViewCharacter> _mapper;
@@ -24,14 +24,21 @@ namespace NotFightClub_Logic.Repositiories
         {
             Character character = _mapper.ViewModelToModel(viewCharacter);
             //add to the db
-            //_dbContext.Database.ExecuteSqlInterpolated($"Insert into Character(name, baseform, traitId, DOB) values({user.UserName},{user.Pword},{user.Email},{user.Dob})");
+            //_dbContext.Database.ExecuteSqlInterpolated($"Insert into Character(name, baseform, traitId, weaponId, userId) values({character.Name},{character.Baseform},{character.TraitId},{character.WeaponId}, {character.UserId})");
             _dbContext.Add(character);
             //save changes
             _dbContext.SaveChanges();
             //read user back from the db
-            Character createdCharacter = await _dbContext.Characters.FromSqlInterpolated($"select * from Characters where UserId = {character.UserId}").FirstOrDefaultAsync();
+            Character createdCharacter = await _dbContext.Characters.FromSqlInterpolated($"select * from Character where UserId = {character.UserId}").FirstOrDefaultAsync();
 
             return _mapper.ModelToViewModel(createdCharacter);
+        }
+
+        public async Task<ViewCharacter> Read(int id)
+        {
+            Character selectedCharacter = await _dbContext.Characters.FromSqlInterpolated($"select * from Character where UserId = {id}").FirstOrDefaultAsync();
+            
+            return _mapper.ModelToViewModel(selectedCharacter);
         }
     }
 }
