@@ -32,7 +32,7 @@ export class UserService {
     console.log('Making call to controller:')
     console.log(user);
 
-    return this.http.post<User>(`${this.url}/Register`, user, {
+    return this.http.post<UserR>(`${this.url}/Register`, user, {
 
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
