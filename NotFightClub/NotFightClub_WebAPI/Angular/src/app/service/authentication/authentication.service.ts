@@ -5,6 +5,7 @@ import { User } from '../../interfaces/user';
 import { SignInData } from '../../model/signInData';
 import { UserService } from '../user/user.service';
 import * as bcrypt from 'bcryptjs';
+import { UserR } from '../../interfaces/userR';
 
 
 
@@ -29,7 +30,7 @@ export class AuthenticationService {
     let password = signInData.getPassword();
     let OUser = await this.userService.Login(signInData.getEmail())
     let observer = {
-      next: (user: User) =>{
+      next: (user: UserR) =>{
         //put the user in session storage
         sessionStorage.setItem('user', JSON.stringify(user));
         console.log(`Should've added to session already`)
