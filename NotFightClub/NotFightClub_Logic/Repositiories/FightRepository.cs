@@ -9,11 +9,17 @@ using NotFightClub_Models.Models;
 
 namespace NotFightClub_Logic.Repositiories
 {
-  class FightRepository : IRepository<ViewFight>
+  public class FightRepository : IRepository<ViewFight, int>
   {
     public Task<ViewFight> Add(ViewFight obj)
     {
       throw new NotImplementedException();
     }
-  }
+
+    public Task<ViewFight> Read(int obj)
+    {
+        throw new NotImplementedException();
+    }
+
+    }
 }
