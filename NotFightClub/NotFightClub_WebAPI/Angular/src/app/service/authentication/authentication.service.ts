@@ -55,7 +55,7 @@ export class AuthenticationService {
           .then(result => {
             if (!result) {
               console.log(`result: ${result}`)
-              sessionStorage.clear();
+              //sessionStorage.clear();
             }
             this.isAuthenticated = result
           }
