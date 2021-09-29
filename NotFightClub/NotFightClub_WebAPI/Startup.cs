@@ -56,12 +56,14 @@ namespace NotFightClub_WebAPI
       //    }
       //});
       services.AddDbContext<P2_NotFightClubContext>();
-      services.AddSingleton<IRepository<ViewUserInfo, string>, UserRepository>();
-      services.AddSingleton<IMapper<UserInfo, ViewUserInfo>, UserInfoMapper>();
-      services.AddSingleton<IRepository<ViewCharacter, int>, CharacterRepository>();
-      services.AddSingleton<IMapper<Character, ViewCharacter>, CharacterMapper>();
-      services.AddSingleton<IMapper<Trait, ViewTrait>, TraitMapper>();
-      services.AddSingleton<IRepository<ViewTrait, int>, TraitRepository > ();
+            services.AddSingleton<IRepository<ViewUserInfo, string>, UserRepository>();
+            services.AddSingleton<IMapper<UserInfo, ViewUserInfo>, UserInfoMapper>();
+            services.AddSingleton<IRepository<ViewCharacter, int>, CharacterRepository>();
+            services.AddSingleton<IMapper<Character, ViewCharacter>, CharacterMapper>();
+            services.AddSingleton<IMapper<Trait, ViewTrait>, TraitMapper>();
+            services.AddSingleton<IRepository<ViewTrait, int>, TraitRepository > ();
+            services.AddSingleton<IRepository<ViewWeapon, int>, WeaponRepository>();
+            services.AddSingleton<IMapper<Weapon, ViewWeapon >, WeaponMapper > ();
       services.AddControllers();
       services.AddSwaggerGen(c =>
       {
