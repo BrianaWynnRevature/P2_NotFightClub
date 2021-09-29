@@ -31,6 +31,5 @@ namespace NotFightClub_Logic.Repositiories
 
       return _mapper.ModelToViewModel(fight);
     }
-
-    }
+  }
 }

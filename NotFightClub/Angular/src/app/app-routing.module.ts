@@ -12,6 +12,7 @@ import { StoreComponent } from './store/store.component';
 import { UserListComponent } from './user/user-list/user-list.component';
 import { CharacterComponent } from './character/character/character.component';
 import { HomeComponent } from './home/home.component';
+import { FightComponent } from './fight/fight.component';
 
 
 
@@ -27,8 +28,8 @@ const routes: Routes = [
   { path: 'character', component: CharacterComponent },
   { path: 'home', component: HomeComponent },
   { path: 'users', component: UserListComponent },
-  { path: 'users/:userId', component: UserProfileComponent}
-
+  { path: 'users/:userId', component: UserProfileComponent },
+  { path: 'fight/:fightId', component: FightComponent }
 ]
 
 

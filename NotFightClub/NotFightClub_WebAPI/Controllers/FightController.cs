@@ -16,18 +16,19 @@ namespace NotFightClub_WebAPI.Controllers
     private readonly P2_NotFightClubContext _context;
 
 
-    private readonly IRepository<ViewFight, string> _fr;
+    private readonly IRepository<ViewFight, int> _fr;
 
-    public FightController(IRepository<ViewFight, string> fr, P2_NotFightClubContext context)
+    public FightController(IRepository<ViewFight, int> fr, P2_NotFightClubContext context)
     {
       _fr = fr;
       _context = context;
     }
 
-    //[HttpGet]
-    //public async Task<ViewFight> Get()
-    //{
-
-    //}
+    [HttpGet("/fight/{id}")]
+    public async Task<ActionResult<ViewFight>> Get(int id)
+    {
+      ViewFight fight = await _fr.Read(id);
+      return Ok(fight);
+    }
   }
 }
