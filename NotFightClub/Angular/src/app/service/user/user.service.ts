@@ -15,8 +15,10 @@ export class UserService {
   private url = 'http://localhost:5000';
   //private urlB = 'https://localhost:44326/'
   //create functions for http requests
+
   UserList(): Observable<User[]> {
-    return this.http.get<User[]>(`${this.url}/api/user`)
+    // return this.http.get<User[]>(`${this.url}/api/user`)
+    return this.http.get<User[]>(`/api/user`)
   }
 
 
@@ -32,32 +34,32 @@ export class UserService {
     console.log('Making call to controller:')
     console.log(user);
 
-    return this.http.post<User>(`${this.url}/Register`, user, {
-
+    // return this.http.post<UserR>(`${this.url}/Register`, user, {
+    return this.http.post<UserR>(`/Register`, user, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })
-       
+
     })
       .pipe(catchError(this.handleError<UserR>('register User', user)));
   }
 
-    private handleError<T>(operation:string, result?:T) {
-      return (error: any): Observable<T> => {
-        console.error(error);
-        console.log(`${operation} failed: ${error.message}`);
-        return of(result as T);
-      };
+  private handleError<T>(operation: string, result?: T) {
+    return (error: any): Observable<T> => {
+      console.error(error);
+      console.log(`${operation} failed: ${error.message}`);
+      return of(result as T);
+    };
   }
-       
-    
-      
-  
-
-  
 
 
 
-  
-  
+
+
+
+
+
+
+
+
 }//eoc

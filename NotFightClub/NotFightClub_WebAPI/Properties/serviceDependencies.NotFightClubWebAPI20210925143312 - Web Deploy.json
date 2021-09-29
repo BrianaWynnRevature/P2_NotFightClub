@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "apis1": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.ApiManagement/service/NotFightClubWebAPIapi/apis/NotFightClubWebAPI",
+      "type": "apis.azure"
+    },
+    "mssql1": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/mkdbserver/databases/NotFightClub",
+      "type": "mssql.azure",
+      "connectionId": "ConnectionString:Azure",
+      "secretStore": "AzureAppSettings"
+    }
+  }
+}
