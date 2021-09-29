@@ -89,7 +89,7 @@ export class CharacterComponent implements OnInit {
       console.log(`weapon sent to storage: ${weaponFull}`)
       //console.log(`This is what 3rd party returns: ${weaponFull.Description} and  this is the id I assigned ${weaponFull.WeaponId}`)
       //save to session storage
-     console.log( `what I'm sending to session: ${sessionStorage.setItem('weapon', JSON.stringify(weaponFull))});
+     console.log( `what I'm sending to session: ${sessionStorage.setItem('weapon', JSON.stringify(weaponFull))}`);
     })
       //post to our database
     

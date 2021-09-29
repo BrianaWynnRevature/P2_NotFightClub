@@ -376,6 +376,24 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Angular\dist\out-tsc\app\character\character\" />
+    <Folder Include="Angular\dist\out-tsc\app\chat\" />
+    <Folder Include="Angular\dist\out-tsc\app\guards\" />
+    <Folder Include="Angular\dist\out-tsc\app\home\" />
+    <Folder Include="Angular\dist\out-tsc\app\login\" />
+    <Folder Include="Angular\dist\out-tsc\app\model\" />
+    <Folder Include="Angular\dist\out-tsc\app\register\" />
+    <Folder Include="Angular\dist\out-tsc\app\service\authentication\" />
+    <Folder Include="Angular\dist\out-tsc\app\service\trait\" />
+    <Folder Include="Angular\dist\out-tsc\app\service\user\" />
+    <Folder Include="Angular\dist\out-tsc\app\service\weapon\" />
+    <Folder Include="Angular\dist\out-tsc\app\shared\" />
+    <Folder Include="Angular\dist\out-tsc\app\store\" />
+    <Folder Include="Angular\dist\out-tsc\app\test\" />
+    <Folder Include="Angular\dist\out-tsc\app\user\edit-profile\" />
+    <Folder Include="Angular\dist\out-tsc\app\user\user-list\" />
+    <Folder Include="Angular\dist\out-tsc\app\user\user-profile\" />
+    <Folder Include="Angular\dist\out-tsc\environments\" />
     <Folder Include="Angular\src\app\guards\" />
     <Folder Include="Angular\src\app\character\" />
     <Folder Include="Angular\src\app\service\weapon\" />
