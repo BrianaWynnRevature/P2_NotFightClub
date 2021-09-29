@@ -33,17 +33,15 @@ namespace NotFightClub_WebAPI
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
     {
-      services.AddCors();
-      //services.AddCors((options) =>
-      //{
-      //  options.AddPolicy(name: "NotFightClubLocal", builder =>
-      //  {
-      //    builder.WithOrigins("http://localhost:4200")
-      //    .AllowAnyHeader()
-      //    .AllowAnyMethod()
-      //    .AllowAnyOrigin();
-      //  });
-      //});
+      services.AddCors((options) =>
+      {
+        options.AddPolicy(name: "NotFightClubLocal", builder =>
+        {
+          builder.WithOrigins("http://localhost:4200")
+          .AllowAnyHeader()
+          .AllowAnyMethod();
+        });
+      });
       //services.AddDbContext<ConfigurationContext>(options =>
       //{
       //    options.UseSqlServer(Configuration.GetConnectionString("local"));
@@ -83,7 +81,7 @@ namespace NotFightClub_WebAPI
         app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "NotFightClub_WebAPI v1"));
       }
 
-      app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
+      app.UseCors("NotFightClubLocal");
 
       app.UseDefaultFiles();
       app.UseStaticFiles();
