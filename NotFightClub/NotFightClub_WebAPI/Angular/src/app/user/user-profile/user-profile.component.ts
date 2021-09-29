@@ -25,18 +25,4 @@ export class UserProfileComponent implements OnInit {
       })
     })
   }
-
-  updateUser() {
-    let userFromSession = sessionStorage.getItem('user');
-    if (!userFromSession) {
-      return
-    } else {
-      let id = JSON.parse(userFromSession).userId;
-      this.router.navigateByUrl(`/edit-profile/${id}`)
-      // this.user.userName = this.formValue.value.userName;
-      // this.user.email = this.formValue.value.email;
-      // this.user.dob = this.formValue.value.dob;
-   
-    }
-  }
 }
