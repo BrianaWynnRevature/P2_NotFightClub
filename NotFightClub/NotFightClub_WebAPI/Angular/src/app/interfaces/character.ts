@@ -9,6 +9,6 @@ export interface Character {
   ties: number | null,
   baseform: string,
   //userId: Guid,
-  //traitId: number,
+  traitId: number,
   //weaponId: number
 }

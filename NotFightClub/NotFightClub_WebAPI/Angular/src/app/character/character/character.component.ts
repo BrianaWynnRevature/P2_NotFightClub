@@ -17,6 +17,7 @@ export class CharacterComponent implements OnInit {
   //user!: User | null;
 
   traitList: Trait[] = [];
+  id = 0;
 
   ngOnInit(): void {
     //get all the traits available and put them in a list
@@ -49,7 +50,7 @@ export class CharacterComponent implements OnInit {
     ties: null,
     baseform: "",
     //userId: this.user?.userId
-    //traitId: number,
+    traitId: 0,
     //weaponId: number
 };
     //save the character to local storage 
@@ -59,7 +60,13 @@ export class CharacterComponent implements OnInit {
 
     //add character name to the character being created
     this.character.name = baseform.value.charactername;
-    console.log(`list of traits: ${this.traitList}`)
+    //console.log(`list of traits: ${this.traitList}`)
+  }
+
+  SubmitTrait(traitId: number)
+  {
+    //set the character's trait id
+    this.character.traitId = traitId;
   }
 
 }
