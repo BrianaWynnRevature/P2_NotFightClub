@@ -44,15 +44,6 @@
   <ItemGroup>
 
     <Folder Include="wwwroot\" />
-
-    <Folder Include="Angular\src\app\guards\" />
-    <Folder Include="Angular\src\app\character\" />
-    <Folder Include="Angular\src\app\service\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <TypeScriptCompile Include="Angular\src\app\model\signInData.ts" />
-
   </ItemGroup>
 
 </Project>
