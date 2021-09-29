@@ -24,7 +24,13 @@ export class UserService {
     return this.http.get<User>(`${this.url}/users/` + id).pipe(map((user:User)=>user))
   }
 
+  editProfile(user: User): Observable<User> {
+    return this.http.put<User>(this.url + '/edit-profile', user);
+  }
 
+  deleteUser(id: Guid): Observable<User>  {
+    return this.http.delete<User>(this.url + '/users/' + id);
+  }
 
   Login(email: string): Observable<UserR> {
     //I just get the user and send it back

@@ -17,17 +17,17 @@ namespace NotFightClub_WebAPI.Controllers
   [Route("api/[controller]")]
   public class UserController : Controller
   {
-        private readonly P2_NotFightClubContext _context;
+    private readonly P2_NotFightClubContext _context;
 
 
-        private readonly IRepository<ViewUserInfo, string> _ur;
+    private readonly IRepository<ViewUserInfo, string> _ur;
 
-        public UserController(IRepository<ViewUserInfo, string> ur, P2_NotFightClubContext context)
-        {
-            _ur = ur;
-            _context = context;
-        }
-       
+    public UserController(IRepository<ViewUserInfo, string> ur, P2_NotFightClubContext context)
+    {
+      _ur = ur;
+      _context = context;
+    }
+
 
 
 
@@ -44,14 +44,14 @@ namespace NotFightClub_WebAPI.Controllers
 
 
 
-        //Get 
-        [HttpGet("/[action]/{email}")]
-        public async Task<ActionResult<ViewUserInfo>> Login(string email)
-        {
-            if (!ModelState.IsValid) return BadRequest("Invalid data.");
-            var loggedUser = await _ur.Read(email);
-            return Ok(loggedUser);
-        }
+    //Get 
+    [HttpGet("/[action]/{email}")]
+    public async Task<ActionResult<ViewUserInfo>> Login(string email)
+    {
+      if (!ModelState.IsValid) return BadRequest("Invalid data.");
+      var loggedUser = await _ur.Read(email);
+      return Ok(loggedUser);
+    }
 
     // GET api/values/5
     [HttpGet("/users/{id}")]
@@ -81,10 +81,58 @@ namespace NotFightClub_WebAPI.Controllers
     // 
     // }
 
+    [HttpPut("{id}")]
+    public async Task<IActionResult> PutUsers(Guid id, UserInfo user)
+    {
+      if (id != user.UserId)
+      {
+        return BadRequest();
+      }
+
+      _context.Entry(user).State = EntityState.Modified;
+
+      try
+      {
+        await _context.SaveChangesAsync();
+      }
+      catch (DbUpdateConcurrencyException)
+      {
+        if (!UserExists(id))
+        {
+          return NotFound();
+        }
+        else
+        {
+          throw;
+        }
+      }
+
+      return NoContent();
+    }
+
     // // DELETE api/values/5
     // [HttpDelete("{id}")]
     // public void Delete(int id)
     // {
     // }
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> DeleteUser(Guid id)
+    {
+      var user = await _context.UserInfos.FindAsync(id);
+      if (user == null)
+      {
+        return NotFound();
+      }
+
+      _context.UserInfos.Remove(user);
+      await _context.SaveChangesAsync();
+
+      return NoContent();
+    }
+
+    private bool UserExists(Guid id)
+    {
+      return _context.UserInfos.Any(e => e.UserId == id);
+    }
   }
 }
