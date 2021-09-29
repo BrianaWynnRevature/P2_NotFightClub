@@ -12,6 +12,7 @@ export class AppComponent {
   constructor(public authenticationService: AuthenticationService) {
 
   }
+  hideCarasol = true;
 
   logout() {
     this.authenticationService.logout();
@@ -24,7 +25,10 @@ export class AppComponent {
     //console.log(`final auth: ${authenticated}`);
     return authenticated;
   }
-  
+
+  HideCarasol(): boolean {
+    return this.hideCarasol = true;
+  }
    
 
 }

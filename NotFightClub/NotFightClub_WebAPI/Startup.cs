@@ -58,8 +58,11 @@ namespace NotFightClub_WebAPI
       //    }
       //});
       services.AddDbContext<P2_NotFightClubContext>();
-      services.AddSingleton<IRepository<ViewUserInfo>, UserRepository>();
+      services.AddSingleton<IRepository<ViewUserInfo, string>, UserRepository>();
       services.AddSingleton<IMapper<UserInfo, ViewUserInfo>, UserInfoMapper>();
+      services.AddSingleton<IRepository<ViewCharacter, int>, CharacterRepository>();
+      services.AddSingleton<IMapper<Character, ViewCharacter>, CharacterMapper>();
+      services.AddSingleton<IRepository<ViewFight, int>, FightRepository>();
       services.AddControllers();
       services.AddSwaggerGen(c =>
       {

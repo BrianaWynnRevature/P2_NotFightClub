@@ -1,5 +1,5 @@
 
-<div class="container emp-profile">
+<div *ngIf="user" class="container emp-profile">
   <form method="post">
       <div class="row">
           <div class="col-md-4">
@@ -9,9 +9,6 @@
           </div>
           <div class="col-md-6">
               <div class="profile-head">
-                          <h5>
-                              Kshiti Ghelani
-                          </h5>
                   <ul class="nav nav-tabs" id="myTab" role="tablist">
                       <li class="nav-item">
                           <p class="nav-link active" id="home-tab" role="tab">About</p>
@@ -37,7 +34,7 @@
                             <label>Username</label>
                         </div>
                         <div class="col-md-6">
-                            <p>Kshiti123</p>
+                            <p>{{user.userName}}</p>
                         </div>
                     </div>
                     <div class="row">
@@ -45,7 +42,7 @@
                             <label>Email</label>
                         </div>
                         <div class="col-md-6">
-                            <p>kshitighelani@gmail.com</p>
+                            <p>{{user.email}}</p>
                         </div>
                     </div>
                     <div class="row">
@@ -53,7 +50,7 @@
                             <label>DOB</label>
                         </div>
                         <div class="col-md-6">
-                            <p>10th Aug, 1990</p>
+                            <p>{{user.dob | date: "MM/dd/yyyy"}}</p>
                         </div>
                     </div>
                     <div class="row">
@@ -61,7 +58,7 @@
                             <label>!Bucks</label>
                         </div>
                         <div class="col-md-6">
-                            <p>$100</p>
+                            <p>${{user.bucks}}</p>
                         </div>
                     </div>
                   </div>
