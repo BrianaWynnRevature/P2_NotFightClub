@@ -51,14 +51,12 @@ export class LoginComponent implements OnInit {
         this.areCredentialsInvalid = false;
         this.router.navigate([''])
         console.log('I made it to rerouter')
+      }else{
+        sessionStorage.clear();
+        this.areCredentialsInvalid = true;
+        sessionStorage.clear();
       }
-      sessionStorage.clear();
-      this.areCredentialsInvalid = true;
-      sessionStorage.clear();
-       
     }
-
-
       , error => console.log(error))
     //console.log(`login component: ${OUser}`);
     //save that user to session storage
