@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { Trait } from '../interfaces/trait';
 import { BucksService } from '../service/bucks/bucks.service';
+import { TraitService } from '../service/trait/trait.service';
 
 @Component({
   selector: 'app-store',
@@ -9,7 +12,7 @@ import { BucksService } from '../service/bucks/bucks.service';
 })
 export class StoreComponent implements OnInit {
 
-  constructor(private bucksService: BucksService, private router: Router) { }
+  constructor(private bucksService: BucksService, private traitService: TraitService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -49,6 +52,8 @@ export class StoreComponent implements OnInit {
   }
 
   editCharacterTrait() {
+    //Get a list of traits
+    let traitList: Observable<Trait[]> = this.traitService.TraitList();
     //Confirm that the user wants the entity.
     let choice: boolean = confirm(`Are you sure you want your character's trait to change? It will cost 200 not bucks.`);
     if (!choice) return;
