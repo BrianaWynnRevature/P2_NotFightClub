@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using NotFightClub_Models.ViewModels;
 using NotFightClub_Logic.Interfaces;
 using NotFightClub_Data;
+using NotFightClub_Models.Models;
 
 namespace NotFightClub_WebAPI.Controllers
 {
@@ -16,12 +17,30 @@ namespace NotFightClub_WebAPI.Controllers
   public class TraitController : Controller
   {
     private readonly P2_NotFightClubContext _context;
-    private readonly IRepository<ViewTrait, string> _ur;
+    private readonly IRepository<ViewTrait, int> _ur;
 
-    public TraitController(IRepository<ViewTrait, string> ur, P2_NotFightClubContext context)
+    public TraitController(IRepository<ViewTrait, int> ur, P2_NotFightClubContext context)
     {
       _ur = ur;
       _context = context;
+    }
+
+    // GET: api/<TraitController>
+    [HttpGet]
+    public IEnumerable<Trait> Get()
+    {
+      using (P2_NotFightClubContext entities = new P2_NotFightClubContext())
+      {
+        return entities.Traits.ToList();
+      }
+    }
+
+    // GET api/traits/5
+    [HttpGet("/traits/{id}")]
+    public async Task<ActionResult<Trait>> GetTraitById(int id)
+    {
+      var trait = await _context.Traits.FindAsync(id);
+      return trait;
     }
 
     // POST api/<TraitController>

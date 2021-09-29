@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace NotFightClub_Logic.Repositiories
 {
-    public class TraitRepository : IRepository<ViewTrait, string>
+    public class TraitRepository : IRepository<ViewTrait, int>
     {
         private readonly P2_NotFightClubContext _dbContext = new P2_NotFightClubContext();
         private readonly IMapper<Trait, ViewTrait> _mapper;
@@ -36,9 +36,9 @@ namespace NotFightClub_Logic.Repositiories
            return _mapper.ModelToViewModel(newTrait);
         }
 
-        public async Task<ViewTrait> Read(string description)
+        public async Task<ViewTrait> Read(int id)
         {
-          Trait trait =  await _dbContext.Traits.FromSqlInterpolated($"select * from Trait where description = {description}").FirstOrDefaultAsync();
+          Trait trait =  await _dbContext.Traits.FromSqlInterpolated($"select * from Trait where TraitId = {id}").FirstOrDefaultAsync();
             
                 return _mapper.ModelToViewModel(trait);
             
