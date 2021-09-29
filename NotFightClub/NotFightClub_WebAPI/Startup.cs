@@ -61,6 +61,8 @@ namespace NotFightClub_WebAPI
       services.AddSingleton<IRepository<ViewCharacter, int>, CharacterRepository>();
       services.AddSingleton<IMapper<Character, ViewCharacter>, CharacterMapper>();
       services.AddSingleton<IRepository<ViewFight, int>, FightRepository>();
+      services.AddSingleton<IRepository<ViewTrait, string>, TraitRepository>();
+      services.AddSingleton<IMapper<Trait, ViewTrait>, TraitMapper>();
       services.AddControllers();
       services.AddSwaggerGen(c =>
       {

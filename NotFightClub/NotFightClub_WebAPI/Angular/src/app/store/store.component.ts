@@ -23,23 +23,24 @@ export class StoreComponent implements OnInit {
       newTrait = prompt(`Sorry, ${newTrait} is not a legal trait. Type in a new trait to add to the database.`);
     }
     //If the new trait is null, don't do anything.
-    if (newTrait === null) return;
+    if (newTrait === null || newTrait === "") return;
     //Confirm that the user wants to add that trait
-    let choice: boolean = confirm(`Are you sure you want to add the new trait ${newTrait}? It will cost 2000 not bucks.`);
+    let choice: boolean = confirm(`Are you sure you want to add the new trait "${newTrait}"? It will cost 2000 not bucks.`);
     if (!choice) return;
     //get user's bucks, and reduce by 2000.
     if (this.bucksService.adjustBucks(-2000)) {
       //Add the trait to the database
+      alert("Your trait has been added to the database.")
     }
   }
 
   editCharacterForm(): void {
     //Prompt the user to enter in a new entity.
     let newForm: string | null = prompt("Type in the new form for your character.");
-    if (newForm === null) return;
+    if (newForm === null || newForm === "") return;
 
     //Confirm that the user wants the entity.
-    let choice: boolean = confirm(`Are you sure you want your character to become a ${newForm}? It will cost 200 not bucks.`);
+    let choice: boolean = confirm(`Are you sure you want your character to become a ${newForm}? It will cost 400 not bucks.`);
     if (!choice) return;
     //get user's bucks, and reduce by 400.
     if (this.bucksService.adjustBucks(-400)) {
