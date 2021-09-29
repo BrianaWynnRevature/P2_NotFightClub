@@ -10,7 +10,7 @@ import Pusher from 'pusher-js';
 export class ChatComponent implements OnInit {
   username: string = 'username';
   message: string = '';
-  messages:any[] = [];
+  messages: any[] = [];
 
   constructor(private http: HttpClient) { }
 
