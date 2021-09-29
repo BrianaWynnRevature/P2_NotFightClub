@@ -33,17 +33,15 @@ namespace NotFightClub_WebAPI
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
     {
-      services.AddCors();
-      //services.AddCors((options) =>
-      //{
-      //  options.AddPolicy(name: "NotFightClubLocal", builder =>
-      //  {
-      //    builder.WithOrigins("http://localhost:4200")
-      //    .AllowAnyHeader()
-      //    .AllowAnyMethod()
-      //    .AllowAnyOrigin();
-      //  });
-      //});
+      services.AddCors((options) =>
+      {
+        options.AddPolicy(name: "NotFightClubLocal", builder =>
+        {
+          builder.WithOrigins("http://localhost:4200")
+          .AllowAnyHeader()
+          .AllowAnyMethod();
+        });
+      });
       //services.AddDbContext<ConfigurationContext>(options =>
       //{
       //    options.UseSqlServer(Configuration.GetConnectionString("local"));
@@ -58,11 +56,14 @@ namespace NotFightClub_WebAPI
       //    }
       //});
       services.AddDbContext<P2_NotFightClubContext>();
-      services.AddSingleton<IRepository<ViewUserInfo, string>, UserRepository>();
-      services.AddSingleton<IMapper<UserInfo, ViewUserInfo>, UserInfoMapper>();
-      services.AddSingleton<IRepository<ViewCharacter, int>, CharacterRepository>();
-      services.AddSingleton<IMapper<Character, ViewCharacter>, CharacterMapper>();
-      services.AddSingleton<IRepository<ViewFight, int>, FightRepository>();
+            services.AddSingleton<IRepository<ViewUserInfo, string>, UserRepository>();
+            services.AddSingleton<IMapper<UserInfo, ViewUserInfo>, UserInfoMapper>();
+            services.AddSingleton<IRepository<ViewCharacter, int>, CharacterRepository>();
+            services.AddSingleton<IMapper<Character, ViewCharacter>, CharacterMapper>();
+            services.AddSingleton<IMapper<Trait, ViewTrait>, TraitMapper>();
+            services.AddSingleton<IRepository<ViewTrait, int>, TraitRepository > ();
+            services.AddSingleton<IRepository<ViewWeapon, int>, WeaponRepository>();
+            services.AddSingleton<IMapper<Weapon, ViewWeapon >, WeaponMapper > ();
       services.AddControllers();
       services.AddSwaggerGen(c =>
       {
@@ -80,7 +81,7 @@ namespace NotFightClub_WebAPI
         app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "NotFightClub_WebAPI v1"));
       }
 
-      app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
+      app.UseCors("NotFightClubLocal");
 
       app.UseDefaultFiles();
       app.UseStaticFiles();
