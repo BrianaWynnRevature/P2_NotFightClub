@@ -6,6 +6,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Angular\src\**" />
+    <Content Remove="Angular\src\**" />
+    <EmbeddedResource Remove="Angular\src\**" />
+    <None Remove="Angular\src\**" />
+    <TypeScriptCompile Remove="Angular\src\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.10" />
         <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.10">
@@ -15,7 +23,6 @@
         <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
       
     <PackageReference Include="PusherServer" Version="4.6.1" />
-    <None Remove="Angular\src\app\model\signInData.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -394,14 +401,6 @@
     <Folder Include="Angular\dist\out-tsc\app\user\user-list\" />
     <Folder Include="Angular\dist\out-tsc\app\user\user-profile\" />
     <Folder Include="Angular\dist\out-tsc\environments\" />
-    <Folder Include="Angular\src\app\guards\" />
-    <Folder Include="Angular\src\app\character\" />
-    <Folder Include="Angular\src\app\service\weapon\" />
-    <Folder Include="Angular\src\app\service\trait\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <TypeScriptCompile Include="Angular\src\app\model\signInData.ts" />
   </ItemGroup>
 
 </Project>
