@@ -16,6 +16,8 @@ import { UserListComponent } from './user/user-list/user-list.component';
 import { ageValidatorDirective } from './shared/age-validator.directive';
 import { CharacterComponent } from './character/character/character.component';
 import { HomeComponent } from './home/home.component';
+import { TimerComponent } from './timer/timer.component';
+import { FightComponent } from './fight/fight.component';
 
 
 
@@ -33,8 +35,8 @@ import { HomeComponent } from './home/home.component';
     ageValidatorDirective,
     CharacterComponent,
     HomeComponent,
- 
-
+    TimerComponent,
+    FightComponent,
   ],
   imports: [
     HttpClientModule,
