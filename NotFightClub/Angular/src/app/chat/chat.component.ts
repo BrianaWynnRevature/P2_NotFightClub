@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import Pusher from 'pusher-js';
+import { TimerComponent } from '../timer/timer.component';
 
 @Component({
   selector: 'app-chat',
@@ -10,7 +11,7 @@ import Pusher from 'pusher-js';
 export class ChatComponent implements OnInit {
   username: string = 'username';
   message: string = '';
-  messages:any[] = [];
+  messages: any[] = [];
 
   constructor(private http: HttpClient) { }
 
@@ -30,7 +31,8 @@ export class ChatComponent implements OnInit {
   submit(): void {
     //this.messages.push(this.message);
     console.log(this.messages);
-    this.http.post('http://localhost:5000/api/messages', {
+    // this.http.post('http://localhost:5000/api/messages', {
+    this.http.post('/api/messages', {
       username: this.username,
       message: this.message
     }).subscribe(() => this.message = '');
