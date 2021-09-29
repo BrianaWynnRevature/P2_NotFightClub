@@ -81,7 +81,7 @@ namespace NotFightClub_WebAPI.Controllers
     // 
     // }
 
-    [HttpPut("{id}")]
+    [HttpPut("/edit-profile/{id}")]
     public async Task<IActionResult> PutUsers(Guid id, UserInfo user)
     {
       if (id != user.UserId)
@@ -115,7 +115,7 @@ namespace NotFightClub_WebAPI.Controllers
     // public void Delete(int id)
     // {
     // }
-    [HttpDelete("{id}")]
+    [HttpDelete("/users/{id}")]
     public async Task<IActionResult> DeleteUser(Guid id)
     {
       var user = await _context.UserInfos.FindAsync(id);

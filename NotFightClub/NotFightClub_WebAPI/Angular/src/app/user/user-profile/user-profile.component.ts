@@ -14,7 +14,7 @@ export class UserProfileComponent implements OnInit {
 
   user: User | null = null;
 
-  constructor( private activatedRoute: ActivatedRoute, private userService: UserService, private router:Router) { }
+  constructor(private activatedRoute: ActivatedRoute, private userService: UserService, private router: Router) { }
   
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
@@ -27,10 +27,16 @@ export class UserProfileComponent implements OnInit {
   }
 
   updateUser() {
-    this.router.navigateByUrl(`/edit-profile`)
-    // this.user.userName = this.formValue.value.userName;
-    // this.user.email = this.formValue.value.email;
-    // this.user.dob = this.formValue.value.dob;
+    let userFromSession = sessionStorage.getItem('user');
+    if (!userFromSession) {
+      return
+    } else {
+      let id = JSON.parse(userFromSession).userId;
+      this.router.navigateByUrl(`/edit-profile/${id}`)
+      // this.user.userName = this.formValue.value.userName;
+      // this.user.email = this.formValue.value.email;
+      // this.user.dob = this.formValue.value.dob;
    
+    }
   }
 }

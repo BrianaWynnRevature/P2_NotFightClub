@@ -23,7 +23,7 @@ const routes: Routes = [
   { path: 'test1', component: TestComponent, canActivate:[AuthGuard]},
   { path: 'chat', component: ChatComponent },
   { path: 'store', component: StoreComponent },
-  { path: 'edit-profile', component: EditProfileComponent }, 
+  { path: 'edit-profile/:userId', component: EditProfileComponent }, 
   { path: 'character', component: CharacterComponent },
   { path: 'home', component: HomeComponent },
   { path: 'users', component: UserListComponent },
