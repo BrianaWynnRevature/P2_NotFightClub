@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NotFightClub_Models.ViewModels
 {
-    class ViewFight
+    public class ViewFight
     {
         //public Fight()
         //{

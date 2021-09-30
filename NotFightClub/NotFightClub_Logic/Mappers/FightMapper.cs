@@ -38,5 +38,15 @@ namespace NotFightClub_Logic.Mappers
 
       return fight;
     }
+
+    public List<Fight> ViewModelToModel(List<ViewFight> obj)
+    {
+      throw new NotImplementedException();
+    }
+
+    public List<ViewFight> ModelToViewModel(List<Fight> obj)
+    {
+      throw new NotImplementedException();
+    }
   }
 }
