@@ -23,7 +23,8 @@
             </ul>
             <form #baseForm ="ngForm" (ngSubmit)="onSubmitBaseForm(baseForm)">
 
-              <div class="form-floating">
+             <div class="form-floating">
+
                 <input type="text" class="form-control" id="floatingInput" placeholder="robot" name="baseform" required #baseform="ngModel" ngModel/>
                 <label for="floatingInput">Base Form</label>
               </div>
@@ -66,7 +67,9 @@
 
 
 
+
             <button type="button" class="w-100 btn btn-lg btn-primary">Submit Trait</button>
+
 
             </div>
           </div>
@@ -85,7 +88,6 @@
               
             </div>
             <button type="button" class="w-100 btn btn-lg btn-primary" (click)="SubmitWeapon()">Generate Weapon</button>
-
           </div>
         </div>
       </div>

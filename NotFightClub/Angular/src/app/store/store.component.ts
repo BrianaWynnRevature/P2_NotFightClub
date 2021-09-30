@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
+
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Trait } from '../interfaces/trait';
 import { BucksService } from '../service/bucks/bucks.service';
 import { TraitService } from '../service/trait/trait.service';
+
 
 
 @Component({
@@ -15,10 +17,13 @@ import { TraitService } from '../service/trait/trait.service';
 export class StoreComponent implements OnInit {
 
 
+
   constructor(private bucksService: BucksService, private traitService: TraitService, private router: Router) { }
+
 
   ngOnInit(): void {
   }
+
 
 
   addTrait(): void {
@@ -76,4 +81,5 @@ export class StoreComponent implements OnInit {
       //A new weapon is randomly generated for the character.
     }
   }
+
 }

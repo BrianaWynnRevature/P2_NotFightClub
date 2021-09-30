@@ -99,6 +99,7 @@ export class CharacterComponent implements OnInit {
     })
     //post to our database
 
+
     const randomWeapon = await sessionStorage.getItem('weapon')
     if (randomWeapon === null) {
       console.log('Error Occurred')
@@ -108,12 +109,12 @@ export class CharacterComponent implements OnInit {
       let dbWeapon = await this.weaponService.PostWeapon(OrandomWeapon)
       dbWeapon.subscribe(weapon => {
         console.log(`returned from db ${weapon.Description} and ${weapon.WeaponId}`)
-      })
 
+       })
+   
     }
     //console.log(`in character component: ${oWeapon}`);
-
-
+ 
   }
 
 }
