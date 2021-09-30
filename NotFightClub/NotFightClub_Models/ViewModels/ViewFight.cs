@@ -7,6 +7,7 @@ using NotFightClub_Models.Models;
 
 namespace NotFightClub_Models.ViewModels
 {
+
     public class ViewFight
     {
       public ViewFight(){}
@@ -31,13 +32,15 @@ namespace NotFightClub_Models.ViewModels
         //    Wagers = new HashSet<Wager>();
         //}
 
-        public int FightId { get; set; }
-        public int? Winner { get; set; }
-        public int? Loser { get; set; }
-        public DateTime? Date { get; set; }
-        public string Result { get; set; }
-        public int? Location { get; set; }
-        public int? Weather { get; set; }
+
+    public int FightId { get; set; }
+    public int? Winner { get; set; }
+    public int? Loser { get; set; }
+    public DateTime? Date { get; set; }
+    public string Result { get; set; }
+    public int? Location { get; set; }
+    public int? Weather { get; set; }
+
 
         public virtual Location LocationNavigation { get; set; }
         public virtual Character LoserNavigation { get; set; }
@@ -47,4 +50,5 @@ namespace NotFightClub_Models.ViewModels
         //public virtual ICollection<Fighter> Fighters { get; set; }
         //public virtual ICollection<Wager> Wagers { get; set; }
     }
+
 }

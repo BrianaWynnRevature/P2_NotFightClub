@@ -37,6 +37,7 @@ namespace NotFightClub_Logic.Repositiories
     {
        List<Fight> fights = await _dbContext.Fights.Include(f => (f as Derived).Weather).ToListAsync();
             return _mapper.ModelToViewModel(fights);
+
     }
   }
 }
