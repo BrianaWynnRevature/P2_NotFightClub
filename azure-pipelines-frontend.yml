@@ -1,4 +1,5 @@
 # Node.js with Angular
+
 # Build a Node.js project that uses Angular.
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
@@ -27,6 +28,8 @@ steps:
   displayName: 'npm install and build'
   workingDirectory: 'NotFightClub/Angular'
 
+
+
 - task: ArchiveFiles@2
   displayName: 'Archive files'
   inputs:
@@ -35,3 +38,11 @@ steps:
     archiveType: 'zip'
     archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
     replaceExistingArchive: true
+
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: '8f7a3d65-6e62-4cf4-b5a9-193406d2e5c2'
+    appType: 'webApp'
+    WebAppName: 'CafeAPI-Angular'
+    packageForLinux: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
