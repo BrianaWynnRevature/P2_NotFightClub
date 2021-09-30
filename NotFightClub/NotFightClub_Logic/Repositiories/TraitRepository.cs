@@ -53,5 +53,9 @@ namespace NotFightClub_Logic.Repositiories
             return _mapper.ModelToViewModel(traits);
 
         }
+
+        public Task<List<Fight>> ReadFight(){
+          throw new NotImplementedException();
+        }
     }
 }
