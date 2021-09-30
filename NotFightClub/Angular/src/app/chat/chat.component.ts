@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import Pusher from 'pusher-js';
-import { TimerComponent } from '../timer/timer.component';
 
 @Component({
   selector: 'app-chat',

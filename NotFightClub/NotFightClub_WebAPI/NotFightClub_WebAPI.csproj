@@ -19,9 +19,9 @@
         <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.10">
         <PrivateAssets>all</PrivateAssets>
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-        </PackageReference> 
+        </PackageReference>
         <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-      
+
     <PackageReference Include="PusherServer" Version="4.6.1" />
   </ItemGroup>
 
@@ -39,6 +39,17 @@
     <ProjectReference Include="..\NotFightClub_Data\NotFightClub_Data.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Angular\src\app\guards\" />
+    <Folder Include="Angular\src\app\character\" />
+    <Folder Include="Angular\src\app\service\weapon\" />
+    <Folder Include="Angular\src\app\service\trait\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="Angular\src\app\model\signInData.ts" />
   </ItemGroup>
 
 </Project>
