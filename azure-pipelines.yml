@@ -28,18 +28,6 @@ stages:
         version: '5.0.x'
   
 
-    - task: NodeTool@0
-      inputs:
-        versionSpec: '10.x'
-      displayName: 'Install Node.js'
-
-
-
-    - task: Npm@1
-      inputs:
-        command: 'install'
-        workingDir: $(pathTop2Ang)
-
     - task: VSBuild@1
       inputs:
         solution: '$(pathToP2Sln)'
