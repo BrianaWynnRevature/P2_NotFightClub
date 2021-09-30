@@ -4,6 +4,8 @@
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
+i'm adding nonsense to make sure my changes do not affect the original
+
 trigger:
   branches:
     include:
