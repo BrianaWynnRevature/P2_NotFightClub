@@ -14,6 +14,7 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
   private url = 'http://localhost:5000';
+
   //private urlB = 'https://localhost:44326/'
   //create functions for http requests
   UserList(): Observable<User[]> {
@@ -24,7 +25,21 @@ export class UserService {
     return this.http.get<User>(`${this.url}/users/` + id).pipe(map((user:User)=>user))
   }
 
+  editProfile(user: User): Observable<User> {
+    console.log(user);
+    return this.http.put<User>(this.url + '/edit-profile/'+ user.userId, user, {
 
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+       
+    });
+  }
+
+  deleteUser(id: Guid): Observable<User>  {
+    console.log(id);
+    return this.http.delete<User>(this.url + '/users/' + id);
+  }
 
   Login(email: string): Observable<UserR> {
     //I just get the user and send it back
@@ -32,6 +47,7 @@ export class UserService {
   }
 
   Register(user: UserR): Observable<UserR> {
+
 
     console.log('Making call to controller:')
     console.log(user);

@@ -2,6 +2,11 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import Pusher from 'pusher-js';
 
+
+import { TimerComponent } from '../timer/timer.component';
+
+
+
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html',
@@ -10,7 +15,9 @@ import Pusher from 'pusher-js';
 export class ChatComponent implements OnInit {
   username: string = 'username';
   message: string = '';
+
   messages:any[] = [];
+
 
   constructor(private http: HttpClient) { }
 

@@ -3,6 +3,9 @@ using NotFightClub_Models.Models;
 using NotFightClub_Models.ViewModels;
 using System;
 using System.Collections.Generic;
+
+using System.Globalization;
+
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,15 +14,25 @@ namespace NotFightClub_Logic.Mappers
 {
     public class TraitMapper : IMapper<Trait, ViewTrait>
     {
-        public ViewTrait ModelToViewModel(Trait obj)
+
+        public ViewTrait ModelToViewModel(Trait trait)
         {
-            ViewTrait trait = new ViewTrait();
-            trait.Description = obj.Description;
-            trait.TraitId = obj.TraitId;
+            ViewTrait viewTrait = new ViewTrait();
+            viewTrait.TraitId = trait.TraitId;
+            viewTrait.Description = trait.Description;
+
+            return viewTrait;
+        }
+
+        public Trait ViewModelToModel(ViewTrait viewTrait)
+        {
+            Trait trait = new Trait();
+            trait.Description = viewTrait.Description;
 
             return trait;
         }
 
+   
         public List<ViewTrait> ModelToViewModel(List<Trait> obj)
         {
             List<ViewTrait> traits = new List<ViewTrait>();
@@ -35,15 +48,7 @@ namespace NotFightClub_Logic.Mappers
             return traits;
         }
 
-        public Trait ViewModelToModel(ViewTrait obj)
-        {
-            Trait trait = new Trait();
-            trait.Description = obj.Description;
-            trait.TraitId = obj.TraitId;
-
-            return trait;
-        }
-
+  
         public List<Trait> ViewModelToModel(List<ViewTrait> obj)
         {
             List<Trait> traits = new List<Trait>(obj.Count);
@@ -55,5 +60,6 @@ namespace NotFightClub_Logic.Mappers
 
             return traits;
         }
+
     }
 }
