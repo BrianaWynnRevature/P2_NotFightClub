@@ -8,6 +8,8 @@ using NotFightClub_Data;
 using NotFightClub_Logic.Interfaces;
 using NotFightClub_Models.Models;
 using NotFightClub_Models.ViewModels;
+using Microsoft.Extensions.Logging;
+
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -19,13 +21,15 @@ namespace NotFightClub_WebAPI.Controllers
   {
     private readonly P2_NotFightClubContext _context;
 
+    private readonly ILogger<UserController> _logger;
 
     private readonly IRepository<ViewUserInfo, string> _ur;
 
-    public UserController(IRepository<ViewUserInfo, string> ur, P2_NotFightClubContext context)
+    public UserController(IRepository<ViewUserInfo, string> ur, P2_NotFightClubContext context, ILogger<UserController> logger)
     {
       _ur = ur;
       _context = context;
+      _logger = logger;
     }
 
 
@@ -82,7 +86,7 @@ namespace NotFightClub_WebAPI.Controllers
     // }
 
     [HttpPut("/edit-profile/{id}")]
-    public async Task<IActionResult> PutUsers(Guid id, UserInfo user)
+    public async Task<IActionResult> PutUsers(Guid id, [FromBody] UserInfo user)
     {
       if (id != user.UserId)
       {
