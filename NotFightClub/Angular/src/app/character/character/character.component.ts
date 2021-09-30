@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Guid } from 'guid-typescript';
+import { Trait } from 'src/app/interfaces/trait';
 import { UserR } from 'src/app/interfaces/userR';
+import { Weapon } from 'src/app/interfaces/weapon';
 import { CharacterService } from 'src/app/service/character/character.service';
+import { TraitService } from 'src/app/service/trait/trait.service';
+import { WeaponService } from 'src/app/service/weapon/weapon.service';
 import { Character } from '../../interfaces/character';
 import { User } from '../../interfaces/user';
 
@@ -44,7 +48,7 @@ export class CharacterComponent implements OnInit {
   }
 
 
-     //create a character to hold the information the user picks
+  //create a character to hold the information the user picks
   character: Character = {
     characterId: 0,
     name: "Your Epic Character!",
@@ -63,7 +67,7 @@ export class CharacterComponent implements OnInit {
 
   onSubmitBaseForm(baseform: NgForm) {
     //add base form to the character being created
- 
+
     //add character name to the character being created
     this.character.name = baseform.value.charactername;
 
