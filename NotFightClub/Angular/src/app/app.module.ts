@@ -19,6 +19,7 @@ import { TimerComponent } from './timer/timer.component';
 import { CharacterComponent } from './character/character/character.component';
 import { HomeComponent } from './home/home.component';
 import { ArchiveComponent } from './archive/archive.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 
@@ -41,6 +42,8 @@ import { ArchiveComponent } from './archive/archive.component';
     CharacterComponent,
     HomeComponent,
     ArchiveComponent,
+
+
   ],
   imports: [
     HttpClientModule,
@@ -49,6 +52,7 @@ import { ArchiveComponent } from './archive/archive.component';
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
