@@ -33,6 +33,7 @@ export class UserService {
 
   Register(user: UserR): Observable<UserR> {
 
+
     console.log('Making call to controller:')
     console.log(user);
 

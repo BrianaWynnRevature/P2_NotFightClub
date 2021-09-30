@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+
 import { Fight } from '../interfaces/fight';
 import { FightService } from '../service/fight/fight.service';
+
 
 @Component({
   selector: 'app-fight',
@@ -8,6 +10,7 @@ import { FightService } from '../service/fight/fight.service';
   styleUrls: ['./fight.component.css']
 })
 export class FightComponent implements OnInit {
+
 
   currentFightId: number = 1;
 
@@ -25,4 +28,5 @@ export class FightComponent implements OnInit {
       this.fight = fight;
     });
   }
+
 }
