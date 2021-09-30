@@ -8,7 +8,7 @@ export interface Character {
   losses: number | null,
   ties: number | null,
   baseform: string,
-  //userId: Guid,
+  userId: Guid,
   traitId: number,
-  //weaponId: number
+  weaponId: number
 }

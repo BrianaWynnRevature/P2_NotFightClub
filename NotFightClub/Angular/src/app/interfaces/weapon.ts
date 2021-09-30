@@ -1,4 +1,4 @@
 export interface Weapon {
-  WeaponId: number 
-  Description: string
+  weaponId: number
+  description: string
 }
