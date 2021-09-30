@@ -28,6 +28,7 @@ stages:
         version: '5.0.x'
   
 
+
     - task: VSBuild@1
       inputs:
         solution: '$(pathToP2Sln)'
