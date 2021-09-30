@@ -1,4 +1,7 @@
-export interface Trait {
-  traitId: number,
-  description: string
+
+export interface Trait
+{
+  traitId: number;
+  description: string;
+
 }

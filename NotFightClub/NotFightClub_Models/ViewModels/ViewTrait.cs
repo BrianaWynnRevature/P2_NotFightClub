@@ -8,6 +8,14 @@ namespace NotFightClub_Models.ViewModels
 {
     public class ViewTrait
     {
+        public ViewTrait(int traitId, string description)
+        {
+            TraitId = traitId;
+            Description = description;
+        }
+
+        public ViewTrait() { }
+
         //public Trait()
         //{
         //    Characters = new HashSet<Character>();

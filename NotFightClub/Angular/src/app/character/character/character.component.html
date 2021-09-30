@@ -22,6 +22,7 @@
               <li>Human</li>
             </ul>
             <form #baseForm ="ngForm" (ngSubmit)="onSubmitBaseForm(baseForm)">
+
               <div class="form-floating">
                 <input type="text" class="form-control" id="floatingInput" placeholder="robot" name="baseform" required #baseform="ngModel" ngModel/>
                 <label for="floatingInput">Base Form</label>
@@ -52,34 +53,11 @@
                   <input type="search" class="form-control" autocomplete="false" placeholder="Type to filter...">
                 </form>
                 <ul class="list-unstyled mb-0">
-                  <li>
-                    <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="#">
+
+                  <li *ngFor="let trait of traitList">
+                    <a class="dropdown-item d-flex align-items-center gap-2 py-2" (click)="SubmitTrait(trait.traitId)" >
                       <span class="d-inline-block bg-success rounded-circle" style="width: .5em; height: .5em;"></span>
-                      Action
-                    </a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="#">
-                      <span class="d-inline-block bg-primary rounded-circle" style="width: .5em; height: .5em;"></span>
-                      Another action
-                    </a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="#">
-                      <span class="d-inline-block bg-danger rounded-circle" style="width: .5em; height: .5em;"></span>
-                      Something else here
-                    </a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="#">
-                      <span class="d-inline-block bg-info rounded-circle" style="width: .5em; height: .5em;"></span>
-                      Separated link
-                    </a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="#">
-                      <span class="d-inline-block bg-info rounded-circle" style="width: .5em; height: .5em;"></span>
-                      Separated link
+                      {{trait.description}}
                     </a>
                   </li>
                 </ul>
@@ -87,7 +65,9 @@
             </div>
 
 
+
             <button type="button" class="w-100 btn btn-lg btn-primary">Submit Trait</button>
+
             </div>
           </div>
       </div>
@@ -102,9 +82,10 @@
           <div class="card-body">
             <h1 class="card-title pricing-card-title">Random Weapon</h1>
             <div class="generate-weapon-here">
-
+              
             </div>
-            <button type="button" class="w-100 btn btn-lg btn-primary">Generate Weapon</button>
+            <button type="button" class="w-100 btn btn-lg btn-primary" (click)="SubmitWeapon()">Generate Weapon</button>
+
           </div>
         </div>
       </div>

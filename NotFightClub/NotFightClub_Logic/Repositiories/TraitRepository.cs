@@ -21,6 +21,7 @@ namespace NotFightClub_Logic.Repositiories
             _mapper = mapper;
         }
 
+
         public async Task<ViewTrait> Add(ViewTrait viewTrait)
         {
             //check if the trait already exists if so decline the entry ( implement later)
@@ -42,6 +43,15 @@ namespace NotFightClub_Logic.Repositiories
             
                 return _mapper.ModelToViewModel(trait);
             
+
+      
+
+        public async Task<List<ViewTrait>> Read()
+        {
+
+            List<Trait> traits = await _dbContext.Traits.ToListAsync();
+            return _mapper.ModelToViewModel(traits);
+
         }
     }
 }

@@ -1,10 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+
 using NotFightClub_WebAPI.Dtos;
 using PusherServer;
+
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+
 using NotFightClub_Models.ViewModels;
 using NotFightClub_Logic.Interfaces;
 using NotFightClub_Data;
@@ -17,11 +21,11 @@ namespace NotFightClub_WebAPI.Controllers
   public class TraitController : Controller
   {
     private readonly P2_NotFightClubContext _context;
-    private readonly IRepository<ViewTrait, int> _ur;
+    private readonly IRepository<ViewTrait, int> _repo;
 
-    public TraitController(IRepository<ViewTrait, int> ur, P2_NotFightClubContext context)
+    public TraitController(IRepository<ViewTrait, int> repo, P2_NotFightClubContext context)
     {
-      _ur = ur;
+       _repo = repo;
       _context = context;
     }
 

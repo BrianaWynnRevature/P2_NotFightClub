@@ -32,12 +32,14 @@ export class UserService {
   }
 
   Register(user: UserR): Observable<UserR> {
+
     //let httpOptions = {
     //  headers: new HttpHeaders({
     //    'Content-Type': 'application/json'
     //    // Authorization: 'my-auth-token'
     //  })
     //};
+
     console.log('Making call to controller:')
     console.log(user);
 
