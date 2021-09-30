@@ -43,7 +43,7 @@ namespace NotFightClub_Logic.Repositiories
             
                 return _mapper.ModelToViewModel(trait);
             
-
+        }
       
 
         public async Task<List<ViewTrait>> Read()
