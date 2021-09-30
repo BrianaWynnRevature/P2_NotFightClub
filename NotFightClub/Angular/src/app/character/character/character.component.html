@@ -55,6 +55,7 @@
                   <input type="search" class="form-control" autocomplete="false" placeholder="Type to filter...">
                 </form>
                 <ul class="list-unstyled mb-0">
+
                   <li *ngFor="let trait of traitList">
                     <a class="dropdown-item d-flex align-items-center gap-2 py-2" (click)="SubmitTrait(trait.traitId)">
                       <span class="d-inline-block bg-success rounded-circle" style="width: .5em; height: .5em;"></span>
@@ -63,6 +64,14 @@
                   </li>
                 </ul>
               </div>
+            </div>
+
+
+
+
+            <button type="button" class="w-100 btn btn-lg btn-primary">Submit Trait</button>
+
+
             </div>
 
           </div>

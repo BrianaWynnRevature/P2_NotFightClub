@@ -4,11 +4,7 @@ import { Guid } from 'guid-typescript';
 import { UserR } from 'src/app/interfaces/userR';
 import { CharacterService } from 'src/app/service/character/character.service';
 import { Character } from '../../interfaces/character';
-import { Trait } from '../../interfaces/trait';
 import { User } from '../../interfaces/user';
-import { Weapon } from '../../interfaces/weapon';
-import { TraitService } from '../../service/trait/trait.service';
-import { WeaponService } from '../../service/weapon/weapon.service';
 
 @Component({
   selector: 'app-character',
@@ -17,9 +13,11 @@ import { WeaponService } from '../../service/weapon/weapon.service';
 })
 export class CharacterComponent implements OnInit {
 
+
   constructor(private traitService: TraitService, private weaponService: WeaponService, private characterService: CharacterService) { }
 
   user!: UserR | null;
+
 
   traitList: Trait[] = [];
   weaponName = "What weapon will you get?";
@@ -46,7 +44,7 @@ export class CharacterComponent implements OnInit {
   }
 
 
-  //create a character to hold the information the user picks
+     //create a character to hold the information the user picks
   character: Character = {
     characterId: 0,
     name: "Your Epic Character!",
@@ -55,17 +53,20 @@ export class CharacterComponent implements OnInit {
     losses: null,
     ties: null,
     baseform: "",
+
     userId: Guid.create(),
     traitId: 0,
     weaponId: 0
   };
-  //save the character to local storage 
+
+
 
   onSubmitBaseForm(baseform: NgForm) {
     //add base form to the character being created
-
+ 
     //add character name to the character being created
     this.character.name = baseform.value.charactername;
+
     this.character.baseform = baseform.value.baseform;
     //console.log(`list of traits: ${this.traitList}`)
   }
@@ -141,12 +142,6 @@ export class CharacterComponent implements OnInit {
       return OWeapon;
     }
   }
-
-
-
-
-
-
 }
 
 
