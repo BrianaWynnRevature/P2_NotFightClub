@@ -44,5 +44,5 @@ steps:
     ConnectionType: 'AzureRM'
     azureSubscription: '8f7a3d65-6e62-4cf4-b5a9-193406d2e5c2'
     appType: 'webApp'
-    WebAppName: 'CafeAPI-Angular'
+    WebAppName: 'NotFightClub'
     packageForLinux: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
