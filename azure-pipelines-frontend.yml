@@ -25,4 +25,4 @@ steps:
     npm install
     ng build --prod
   displayName: 'npm install and build'
-  workingDirectory: 'Angular'
+  workingDirectory: 'NotFightClub/Angular'
