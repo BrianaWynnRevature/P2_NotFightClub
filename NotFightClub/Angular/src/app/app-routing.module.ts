@@ -12,8 +12,9 @@ import { StoreComponent } from './store/store.component';
 import { UserListComponent } from './user/user-list/user-list.component';
 import { CharacterComponent } from './character/character/character.component';
 import { HomeComponent } from './home/home.component';
-
 import { FightComponent } from './fight/fight.component';
+import { ArchiveComponent } from './archive/archive.component';
+
 
 
 
@@ -23,16 +24,19 @@ import { FightComponent } from './fight/fight.component';
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'test1', component: TestComponent, canActivate:[AuthGuard]},
+  { path: 'test1', component: TestComponent, canActivate: [AuthGuard] },
   { path: 'chat', component: ChatComponent },
   { path: 'store', component: StoreComponent },
-  { path: 'edit-profile/:userId', component: EditProfileComponent }, 
+  { path: 'edit-profile/:userId', component: EditProfileComponent },
   { path: 'character', component: CharacterComponent },
   { path: 'home', component: HomeComponent },
   { path: 'users', component: UserListComponent },
 
   { path: 'users/:userId', component: UserProfileComponent },
-  { path: 'fight/:fightId', component: FightComponent }
+  { path: 'fight/:fightId', component: FightComponent },
+  { path: 'archive', component: ArchiveComponent },
+  { path: '**', component: HomeComponent }
+
 
 ]
 
@@ -43,6 +47,6 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forRoot(routes)
   ],
-  exports:[RouterModule]
+  exports: [RouterModule]
 })
 export class AppRoutingModule { }

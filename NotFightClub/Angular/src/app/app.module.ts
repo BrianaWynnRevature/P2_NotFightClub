@@ -18,6 +18,8 @@ import { FightComponent } from './fight/fight.component';
 import { TimerComponent } from './timer/timer.component';
 import { CharacterComponent } from './character/character/character.component';
 import { HomeComponent } from './home/home.component';
+import { ArchiveComponent } from './archive/archive.component';
+
 
 
 
@@ -37,7 +39,8 @@ import { HomeComponent } from './home/home.component';
     FightComponent,
     TimerComponent,
     CharacterComponent,
-    HomeComponent
+    HomeComponent,
+    ArchiveComponent,
   ],
   imports: [
     HttpClientModule,
