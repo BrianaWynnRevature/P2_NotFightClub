@@ -54,6 +54,9 @@ namespace NotFightClub_WebAPI.Controllers
     {
       if (!ModelState.IsValid) return BadRequest("Invalid data.");
       var loggedUser = await _ur.Read(email);
+
+      _logger.LogInformation($"{loggedUser.UserName} logged in");
+
       return Ok(loggedUser);
     }
 
@@ -76,6 +79,8 @@ namespace NotFightClub_WebAPI.Controllers
       //return the result
       //Console.WriteLine(viewUser);
       var registeredUser = await _ur.Add(viewUser);
+
+      _logger.LogInformation($"Registered New User with Username: {viewUser.UserName}");
       return Ok(registeredUser);
     }
 
@@ -92,7 +97,7 @@ namespace NotFightClub_WebAPI.Controllers
       {
         return BadRequest();
       }
-
+      _logger.LogInformation($"Updating {user.UserName}'s profile");
       _context.Entry(user).State = EntityState.Modified;
 
       try
@@ -110,6 +115,7 @@ namespace NotFightClub_WebAPI.Controllers
           throw;
         }
       }
+      _logger.LogInformation($"Updated details: Username: {user.UserName} || Email: {user.Email} || DOB: {user.Dob}");
 
       return NoContent();
     }
@@ -130,6 +136,8 @@ namespace NotFightClub_WebAPI.Controllers
 
       _context.UserInfos.Remove(user);
       await _context.SaveChangesAsync();
+
+      _logger.LogInformation($"{user.UserName} deleted.");
 
       return NoContent();
     }
