@@ -29,13 +29,14 @@ namespace NotFightClub_Logic.Repositiories
             //save changes
             _dbContext.SaveChanges();
             //read user back from the db
-            Character createdCharacter = await _dbContext.Characters.FromSqlInterpolated($"select * from Character where UserId = {character.UserId}").FirstOrDefaultAsync();
-
+            Character createdCharacter = await _dbContext.Characters.FromSqlInterpolated($"select * from Character where UserId = {character.UserId} and name = {character.Name} and baseform = {character.Baseform}").FirstOrDefaultAsync();
+            
             return _mapper.ModelToViewModel(createdCharacter);
         }
 
         public async Task<ViewCharacter> Read(int id)
         {
+          //this will not work because userId is not an integer
             Character selectedCharacter = await _dbContext.Characters.FromSqlInterpolated($"select * from Character where UserId = {id}").FirstOrDefaultAsync();
             
             return _mapper.ModelToViewModel(selectedCharacter);
