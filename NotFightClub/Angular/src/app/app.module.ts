@@ -38,9 +38,6 @@ import { HomeComponent } from './home/home.component';
     TimerComponent,
     CharacterComponent,
     HomeComponent
- 
-
-
   ],
   imports: [
     HttpClientModule,

@@ -29,6 +29,11 @@ namespace NotFightClub_Logic.Mappers
             return viewCharacter;
         }
 
+        public List<ViewCharacter> ModelToViewModel(List<Character> obj)
+        {
+            throw new NotImplementedException();
+        }
+
         public Character ViewModelToModel(ViewCharacter viewCharacter)
         {
             Character character = new Character();
@@ -44,6 +49,11 @@ namespace NotFightClub_Logic.Mappers
             character.CharacterId = viewCharacter.CharacterId;
 
             return character;
+        }
+
+        public List<Character> ViewModelToModel(List<ViewCharacter> obj)
+        {
+            throw new NotImplementedException();
         }
     }
 }

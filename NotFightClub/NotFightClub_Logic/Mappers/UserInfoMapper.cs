@@ -31,6 +31,11 @@ namespace NotFightClub_Logic.Mappers
             
         }
 
+        public List<ViewUserInfo> ModelToViewModel(List<UserInfo> obj)
+        {
+            throw new NotImplementedException();
+        }
+
         public UserInfo ViewModelToModel(ViewUserInfo viewUser)
         {
             UserInfo user = new UserInfo();
@@ -49,6 +54,11 @@ namespace NotFightClub_Logic.Mappers
             user.UserId = g;
 
             return user;
+        }
+
+        public List<UserInfo> ViewModelToModel(List<ViewUserInfo> obj)
+        {
+            throw new NotImplementedException();
         }
     }
 }

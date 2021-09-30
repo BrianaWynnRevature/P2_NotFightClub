@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private authenticationService: AuthenticationService, private router: Router) { }
 
-  
+
   areCredentialsInvalid = false;
 
   ngOnInit(): void {
@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
   //can use it for hashing passwords
 
   onSubmit(signInForm: NgForm) {
-    
+
     //if (!signInForm.valid) {
     //  this.isFormInValid = true;
     //  this.areCredentialsInvalid = false;
@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
     //this.authenticationService.authenticate(signInData);
 
     //make a call to the authentication service to get a user from the database
-   
+
     let authenticated = this.authenticationService.Login(signInData); //pass data to authentication service
     authenticated.then(result => {
       if (result) {
@@ -51,7 +51,9 @@ export class LoginComponent implements OnInit {
         this.areCredentialsInvalid = false;
         this.router.navigate([''])
         console.log('I made it to rerouter')
-      }else{
+
+      } else {
+
         sessionStorage.clear();
         this.areCredentialsInvalid = true;
         sessionStorage.clear();
@@ -60,7 +62,7 @@ export class LoginComponent implements OnInit {
       , error => console.log(error))
     //console.log(`login component: ${OUser}`);
     //save that user to session storage
-    
+
   }
 
 
@@ -69,8 +71,5 @@ export class LoginComponent implements OnInit {
     console.log(`final auth: ${authenticated}`);
     return authenticated;
   }
- 
+
 }
-
-
-
