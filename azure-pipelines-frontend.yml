@@ -9,7 +9,7 @@ trigger:
     - main
   paths:
     include:
-    - NotFightClub/NotFightClub_WebAPI/Angular/
+    - NotFightClub/Angular
 pool:
   vmImage: windows-latest
 
