@@ -7,7 +7,6 @@ using NotFightClub_Models.Models;
 
 namespace NotFightClub_Models.ViewModels
 {
-
     public class ViewFight
     {
       public ViewFight(){}
