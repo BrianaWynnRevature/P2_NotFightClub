@@ -37,21 +37,22 @@ namespace NotFightClub_Logic.Repositiories
       return _mapper.ModelToViewModel(newTrait);
     }
 
-    public async Task<ViewTrait> Read(int id)
-    {
-      Trait trait = await _dbContext.Traits.FromSqlInterpolated($"select * from Trait where TraitId = {id}").FirstOrDefaultAsync();
 
-      return _mapper.ModelToViewModel(trait);
-    }
+        public async Task<ViewTrait> Read(int id)
+        {
+          Trait trait =  await _dbContext.Traits.FromSqlInterpolated($"select * from Trait where TraitId = {id}").FirstOrDefaultAsync();
+            
+                return _mapper.ModelToViewModel(trait);
+            
+        }
+      
 
+        public async Task<List<ViewTrait>> Read()
+        {
 
+            List<Trait> traits = await _dbContext.Traits.ToListAsync();
+            return _mapper.ModelToViewModel(traits);
 
-    public async Task<List<ViewTrait>> Read()
-    {
-
-      List<Trait> traits = await _dbContext.Traits.ToListAsync();
-      return _mapper.ModelToViewModel(traits);
-
-    }
-  }
-}
+        }
+  }// end of class 
+}// end of 
