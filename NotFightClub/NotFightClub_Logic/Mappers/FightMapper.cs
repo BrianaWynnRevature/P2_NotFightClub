@@ -25,6 +25,11 @@ namespace NotFightClub_Logic.Mappers
       return viewFight;
     }
 
+    public List<ViewFight> ModelToViewModel(List<Fight> obj)
+    {
+      throw new NotImplementedException();
+    }
+
     public Fight ViewModelToModel(ViewFight obj)
     {
       Fight fight = new Fight();
@@ -37,6 +42,35 @@ namespace NotFightClub_Logic.Mappers
       fight.Weather = obj.Weather;
 
       return fight;
+    }
+
+    public List<Fight> ViewModelToModel(List<ViewFight> obj)
+    {
+      throw new NotImplementedException();
+    }
+
+
+    public List<ViewFight> ModelToViewModel(List<Fight> obj)
+    {
+       List<ViewFight> fights = new List<ViewFight>();
+            for (int i = 0; i < obj.Count; i++)
+            {
+                ViewFight f = new ViewFight(
+                obj[i].Weather,
+                obj[i].FightId,
+                obj[i].Location,
+                obj[i].Winner,
+                obj[i].Loser,
+                obj[i].Date,
+                obj[i].LocationNavigation,
+                obj[i].WeatherNavigation,
+                obj[i].WinnerNavigation,
+                obj[i].LoserNavigation
+          
+                );
+                fights.Add(f);
+            }
+            return fights;
     }
   }
 }
