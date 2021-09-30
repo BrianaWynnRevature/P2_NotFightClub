@@ -39,10 +39,10 @@ steps:
     archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
     replaceExistingArchive: true
 
-#- #task: AzureRmWebAppDeployment@4
-  #inputs:
-  #  ConnectionType: 'AzureRM'
-  #  azureSubscription: '8f7a3d65-6e62-4cf4-b5a9-193406d2e5c2'
-  #  appType: 'webApp'
-  #  WebAppName: 'NotFightClub'
-  #  packageForLinux: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: '8f7a3d65-6e62-4cf4-b5a9-193406d2e5c2'
+    appType: 'webApp'
+    WebAppName: 'NotFightClub'
+    packageForLinux: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
