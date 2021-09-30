@@ -20,21 +20,38 @@ namespace NotFightClub_Logic.Repositiories
         {
             _mapper = mapper;
         }
-        public Task<ViewTrait> Add(ViewTrait obj)
+
+
+        public async Task<ViewTrait> Add(ViewTrait viewTrait)
         {
-            throw new NotImplementedException();
+            //check if the trait already exists if so decline the entry ( implement later)
+            //convert to Trait with Mapper class
+            Trait trait = _mapper.ViewModelToModel(viewTrait);
+            //add to the db
+            _dbContext.Database.ExecuteSqlInterpolated($"Insert into Trait(Description) values({trait.Description})");
+            //save changes
+            _dbContext.SaveChanges();
+            //read trait back from the db
+            Trait newTrait =  await _dbContext.Traits.FromSqlInterpolated($"select * from Trait where Description = {trait.Description}").FirstOrDefaultAsync();
+
+           return _mapper.ModelToViewModel(newTrait);
         }
 
-        public Task<ViewTrait> Read(int obj)
+        public async Task<ViewTrait> Read(int id)
         {
-            throw new NotImplementedException();
-        }
+          Trait trait =  await _dbContext.Traits.FromSqlInterpolated($"select * from Trait where TraitId = {id}").FirstOrDefaultAsync();
+            
+                return _mapper.ModelToViewModel(trait);
+            
+
+      
 
         public async Task<List<ViewTrait>> Read()
         {
 
             List<Trait> traits = await _dbContext.Traits.ToListAsync();
             return _mapper.ModelToViewModel(traits);
+
         }
     }
 }

@@ -14,10 +14,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { EditProfileComponent } from './user/edit-profile/edit-profile.component';
 import { UserListComponent } from './user/user-list/user-list.component';
 import { ageValidatorDirective } from './shared/age-validator.directive';
+
+import { FightComponent } from './fight/fight.component';
+import { TimerComponent } from './timer/timer.component';
 import { CharacterComponent } from './character/character/character.component';
 import { HomeComponent } from './home/home.component';
-import { TimerComponent } from './timer/timer.component';
-import { FightComponent } from './fight/fight.component';
+
 
 
 
@@ -33,10 +35,10 @@ import { FightComponent } from './fight/fight.component';
     EditProfileComponent,
     UserListComponent,
     ageValidatorDirective,
-    CharacterComponent,
-    HomeComponent,
-    TimerComponent,
     FightComponent,
+    TimerComponent,
+    CharacterComponent,
+    HomeComponent
   ],
   imports: [
     HttpClientModule,

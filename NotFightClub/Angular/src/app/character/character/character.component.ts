@@ -7,12 +7,14 @@ import { Weapon } from '../../interfaces/weapon';
 import { TraitService } from '../../service/trait/trait.service';
 import { WeaponService } from '../../service/weapon/weapon.service';
 
+
 @Component({
   selector: 'app-character',
   templateUrl: './character.component.html',
   styleUrls: ['./character.component.css']
 })
 export class CharacterComponent implements OnInit {
+
 
   constructor(private traitService: TraitService, private weaponService: WeaponService) { }
 
@@ -29,6 +31,7 @@ export class CharacterComponent implements OnInit {
       //  //get user from session storage
       //  //this.user = this.RetrievefromSession()
     })
+
   }
 
   //RetrievefromSession(): User | null {
@@ -42,6 +45,7 @@ export class CharacterComponent implements OnInit {
   //  }
   //}
 
+
   //create a character to hold the information the user picks
   character: Character = {
     characterId: 0,
@@ -52,6 +56,7 @@ export class CharacterComponent implements OnInit {
     ties: null,
     baseform: "",
     //userId: this.user?.userId
+
     traitId: 0,
     //weaponId: number
   };
@@ -107,6 +112,7 @@ export class CharacterComponent implements OnInit {
 
     }
     //console.log(`in character component: ${oWeapon}`);
+
 
   }
 

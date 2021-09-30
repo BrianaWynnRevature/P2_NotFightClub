@@ -1,57 +1,63 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using NotFightClub_Logic.Interfaces;
-using NotFightClub_Models.Models;
-using NotFightClub_Models.ViewModels;
+
+using NotFightClub_WebAPI.Dtos;
+using PusherServer;
+
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+using NotFightClub_Models.ViewModels;
+using NotFightClub_Logic.Interfaces;
+using NotFightClub_Data;
+using NotFightClub_Models.Models;
 
 namespace NotFightClub_WebAPI.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class TraitController : ControllerBase
+  [Route("api/[controller]")]
+  [ApiController]
+  public class TraitController : Controller
+  {
+    private readonly P2_NotFightClubContext _context;
+    private readonly IRepository<ViewTrait, int> _repo;
+
+    public TraitController(IRepository<ViewTrait, int> repo, P2_NotFightClubContext context)
     {
-        private readonly IRepository<ViewTrait, int> _repo;
-
-        public TraitController(IRepository<ViewTrait, int> repo)
-        {
-            _repo = repo;
-
-        }
-        // GET: api/<TraitController>
-        [HttpGet]
-        public async Task<ActionResult<List<ViewTrait>>> Get()
-        {
-            return Ok( await _repo.Read());
-        }
-
-        // GET api/<TraitController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
-
-        // POST api/<TraitController>
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
-
-        // PUT api/<TraitController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<TraitController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
+       _repo = repo;
+      _context = context;
     }
+
+    // GET: api/<TraitController>
+    [HttpGet]
+    public IEnumerable<Trait> Get()
+    {
+      using (P2_NotFightClubContext entities = new P2_NotFightClubContext())
+      {
+        return entities.Traits.ToList();
+      }
+    }
+
+    // GET api/traits/5
+    [HttpGet("/traits/{id}")]
+    public async Task<ActionResult<Trait>> GetTraitById(int id)
+    {
+      var trait = await _context.Traits.FindAsync(id);
+      return trait;
+    }
+
+    // POST api/<TraitController>
+    [HttpPost]
+    public async Task<ActionResult<ViewTrait>> Post([FromBody] ViewTrait viewTrait)
+    {
+      if (!ModelState.IsValid) return BadRequest("Invalid data.");
+      //call to repository to add trait
+      //return the result
+      //Console.WriteLine(viewTrait);
+      var newTrait = await _ur.Add(viewTrait);
+      return Ok(newTrait);
+    }
+  }
 }
+

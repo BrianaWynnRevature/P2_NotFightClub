@@ -22,7 +22,8 @@
               <li>Human</li>
             </ul>
             <form #baseForm ="ngForm" (ngSubmit)="onSubmitBaseForm(baseForm)">
-             <div class="form-floating">
+
+              <div class="form-floating">
                 <input type="text" class="form-control" id="floatingInput" placeholder="robot" name="baseform" required #baseform="ngModel" ngModel/>
                 <label for="floatingInput">Base Form</label>
               </div>
@@ -52,6 +53,7 @@
                   <input type="search" class="form-control" autocomplete="false" placeholder="Type to filter...">
                 </form>
                 <ul class="list-unstyled mb-0">
+
                   <li *ngFor="let trait of traitList">
                     <a class="dropdown-item d-flex align-items-center gap-2 py-2" (click)="SubmitTrait(trait.traitId)" >
                       <span class="d-inline-block bg-success rounded-circle" style="width: .5em; height: .5em;"></span>
@@ -61,6 +63,10 @@
                 </ul>
               </div>
             </div>
+
+
+
+            <button type="button" class="w-100 btn btn-lg btn-primary">Submit Trait</button>
 
             </div>
           </div>
@@ -79,6 +85,7 @@
               
             </div>
             <button type="button" class="w-100 btn btn-lg btn-primary" (click)="SubmitWeapon()">Generate Weapon</button>
+
           </div>
         </div>
       </div>
