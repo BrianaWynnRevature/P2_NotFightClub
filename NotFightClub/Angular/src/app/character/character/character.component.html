@@ -2,7 +2,8 @@
   <header>
     <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
       <h1 class="display-4 fw-normal">Character Creation</h1>
-      <p class="fs-5 ">Quickly build a character to participate in fights. Choose a baseform and name your character, Select a trait, and Generate a random weapon to charge into battle</p>
+      <p class="fs-5 ">Quickly build a character to participate in fights. Choose a baseform and name your character,
+        Select a trait, and Generate a random weapon to charge into battle</p>
     </div>
   </header>
 
@@ -17,17 +18,19 @@
             <h3 class="card-title pricing-card-title">Examples:</h3>
             <ul class="list-unstyled mt-3 mb-4">
               <li>Robot</li>
-              <li>Cookie</li> 
+              <li>Cookie</li>
               <li>Cat</li>
               <li>Human</li>
             </ul>
-            <form #baseForm ="ngForm" (ngSubmit)="onSubmitBaseForm(baseForm)">
-             <div class="form-floating">
-                <input type="text" class="form-control" id="floatingInput" placeholder="robot" name="baseform" required #baseform="ngModel" ngModel/>
+            <form #baseForm="ngForm" (ngSubmit)="onSubmitBaseForm(baseForm)">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="floatingInput" placeholder="robot" name="baseform" required
+                  #baseform="ngModel" ngModel />
                 <label for="floatingInput">Base Form</label>
               </div>
               <div class="form-floating">
-                <input type="text" class=" form-control" id="floatingName" placeholder="character name" name="charactername" required #charactername="ngModel" ngModel />
+                <input type="text" class=" form-control" id="floatingName" placeholder="character name"
+                  name="charactername" required #charactername="ngModel" ngModel />
                 <label for="floatingName">Character Name</label>
               </div>
               <button type="submit" class="w-100 btn btn-lg btn-outline-primary">Submit Base Form</button>
@@ -53,7 +56,7 @@
                 </form>
                 <ul class="list-unstyled mb-0">
                   <li *ngFor="let trait of traitList">
-                    <a class="dropdown-item d-flex align-items-center gap-2 py-2" (click)="SubmitTrait(trait.traitId)" >
+                    <a class="dropdown-item d-flex align-items-center gap-2 py-2" (click)="SubmitTrait(trait.traitId)">
                       <span class="d-inline-block bg-success rounded-circle" style="width: .5em; height: .5em;"></span>
                       {{trait.description}}
                     </a>
@@ -62,8 +65,8 @@
               </div>
             </div>
 
-            </div>
           </div>
+        </div>
       </div>
 
 
@@ -74,11 +77,27 @@
             <h4 class="my-0 fw-normal">Weapon</h4>
           </div>
           <div class="card-body">
-            <h1 class="card-title pricing-card-title">Random Weapon</h1>
+            <h3 class="card-title pricing-card-title">Random Weapon</h3>
             <div class="generate-weapon-here">
-              
+              <h5>{{weaponName}}</h5>
             </div>
             <button type="button" class="w-100 btn btn-lg btn-primary" (click)="SubmitWeapon()">Generate Weapon</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm border-primary">
+          <div class="card-header py-3 text-white bg-primary border-primary">
+            <h4 class="my-0 fw-normal">Ready?</h4>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title pricing-card-title">Submit Your Character</h3>
+            <div class="generate-weapon-here">
+              <h5>{{character.name}}</h5>
+            </div>
+            <button type="button" class="w-100 btn btn-lg btn-primary" (click)="SubmitCharacter()">Submit
+              Character</button>
           </div>
         </div>
       </div>
