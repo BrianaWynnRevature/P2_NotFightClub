@@ -56,6 +56,12 @@
 [Here you will find a link to the original proposal to gain more insight into the planned functionality and scope of the project.](https://docs.google.com/document/d/14whPE1lw94T9dRmhQZHbu9hTUjS3Wzd7PYOryn1sUys/edit?usp=sharing)
 
 ---
+## Contributers
+- Simran Manandhar
+- Marcus Katalenas
+- Zachary Woolfolk
+- Jeffery Wright
+
 
 ## License
 This project uses the following license: MIT_License
