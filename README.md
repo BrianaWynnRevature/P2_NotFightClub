@@ -46,7 +46,7 @@
 ### To-do
 - Outsource user authentication and authorization to auth0
 - Implement Betting and voting components
-- Seperate debater chatbox from spectator commenting
+- Separate debater chatbox from spectator commenting
 - Add champion leveling system
 - Add method for users to earn more bucks
 - Add ability to participate in fights immediately and to participate in private fights
